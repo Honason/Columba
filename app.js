@@ -14,8 +14,7 @@ var mongo = require('mongodb');
 var mongoose = require('mongoose');
 var db = mongoose.connection;
 
-process.env.NODE_ENV = process.env.NODE_ENV || 'development';
-process.env.PWD = process.cwd();
+mongoose.connect('mongodb://root:root@ds039311.mongolab.com:39311/node-workshop');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');

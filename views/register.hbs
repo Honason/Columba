@@ -1,0 +1,42 @@
+<h1>Register</h1>
+<p>Please register using the form below.</p>
+<ul class="errors">
+	{{#if errors}}
+		{{#each errors}}
+			<li class="alert alert-danger">{{msg}}</li>
+		{{/each}}
+	{{/if}}
+</ul>
+<form action="register" method="post" enctype="ultipart/form-data">
+	<div class="form-group">
+		<label for="">Name</label>
+		<input class="form-control" type="text" name="name" placeholder="Enter name">
+	</div>
+
+	<div class="form-group">
+		<label for="">Email</label>
+		<input class="form-control" type="email" name="email" placeholder="Enter email">
+	</div>
+
+	<div class="form-group">
+		<label for="">Username</label>
+		<input class="form-control" type="text" name="username" placeholder="Enter username">
+	</div>
+
+	<div class="form-group">
+		<label for="">Password</label>
+		<input class="form-control" type="password" name="password" placeholder="Enter password">
+	</div>
+
+	<div class="form-group">
+		<label for="">Confirm password</label>
+		<input class="form-control" type="password" name="password2" placeholder="Confirm password">
+	</div>
+
+	<div class="form-group">
+		<label for="">Profile image</label>
+		<input class="form-control" type="file" name="profileimage">
+	</div>
+
+	<input type="submit" name="submit" class="btn btn-default" value="Register">
+</form>

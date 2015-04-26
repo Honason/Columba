@@ -2,9 +2,43 @@
 <html>
   <head>
     <title>{{title}}</title>
+    <link rel='stylesheet' href='/stylesheets/bootstrap.css' />
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    {{{body}}}
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Project name</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="/">Members</a></li>
+            {{#unless user}}
+	            <li><a href="/users/register">Register</a></li>
+	            <li><a href="/users/login">Login</a></li>
+	        {{/unless}}
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+          	{{#if user}}
+	            <li><a href="/users/logout">Logout</a></li>
+            {{/if}}
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+	<div class="container">
+	    {{{body}}}
+	</div>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script src="/javascripts/bootstrap.js"></script>
   </body>
 </html>

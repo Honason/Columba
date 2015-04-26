@@ -12,10 +12,10 @@ var multer = require('multer');
 var flash = require('connect-flash');
 var mongo = require('mongodb');
 var mongoose = require('mongoose');
+var sassMiddleware = require('node-sass-middleware');
+
 var db = mongoose.connection;
 
-process.env.NODE_ENV = process.env.NODE_ENV || 'development';
-process.env.PWD = process.cwd();
 mongoose.connect('mongodb://root:root@ds039311.mongolab.com:39311/node-workshop');
 
 var routes = require('./routes/index');
@@ -66,8 +66,17 @@ app.use(expressValidator({
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
 
+var srcPath = __dirname + '/public/stylesheets';
+var destPath = __dirname + '/public/styles';
+app.use('/styles', sassMiddleware({
+  src: srcPath,
+  dest: destPath,
+  debug: true,
+  outputStyle: 'expanded'
+}));
+
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(flash());
 app.use(function (req, res, next) {
   res.locals.messages = require('express-messages')(req, res);

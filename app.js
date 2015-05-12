@@ -14,9 +14,9 @@ var mongo = require('mongodb');
 var mongoose = require('mongoose');
 var sassMiddleware = require('node-sass-middleware');
 
-var db = mongoose.connection;
-
 mongoose.connect('mongodb://root:root@ds039311.mongolab.com:39311/node-workshop');
+
+var db = mongoose.connection;
 
 var routes = require('./routes/index');
 var users = require('./routes/users');

@@ -9,18 +9,13 @@ var UserSchema = mongoose.Schema({
 		type: String,
 		index: true
 	},
-	password: {
-		type: String,
-		bcrypt: true,
-		required: true
+	password:{
+		type: String, required: true, bcrypt:true
 	},
 	email: {
-		type: String
+		type:String
 	},
-	name: {
-		type: String
-	},
-	profileImage: {
+	name:{
 		type: String
 	}
 });
@@ -29,7 +24,7 @@ var User = module.exports = mongoose.model('User', UserSchema);
 
 module.exports.comparePassword = function(candidatePassword, hash, callback){
 	bcrypt.compare(candidatePassword, hash, function(err, isMatch){
-		if (err) return callback(err);
+		if(err) return callback(err);
 		callback(null, isMatch);
 	});
 }
@@ -43,11 +38,12 @@ module.exports.getUserByUsername = function(username, callback){
 	User.findOne(query, callback);
 }
 
-module.exports.createUser = function(newUser, callback){
-	bcrypt.hash(newUser.password, 10, function(err, hash){
-		if (err) throw err;
-		// Set hash pw
+module.exports.createUser = function(newUser, callback) {
+	bcrypt.hash(newUser.password, null, null, function(err, hash){
+		if(err) throw err;
+		// Set hashed pw
 		newUser.password = hash;
-		newUser.save(callback);
+		// Create User
+		newUser.save(callback)
 	});
-};
+}

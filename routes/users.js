@@ -30,21 +30,6 @@ router.post('/register', function(req, res, next) {
 	var password = req.body.password;
 	var password2 = req.body.password2;
 
-	// Check for image field
-	if(req.files.profileimage){
-		console.log('Uploading file...');
-
-		var profileImageOriginalName = req.files.profileimage.originalname;
-		var profileImageName = req.files.profileimage.name;
-		var profileImageMime = req.files.profileimage.mimetype;
-		var profileImagePath = req.files.profileimage.path;
-		var profileImageExt = req.files.profileimage.extension;
-		var profileImageSize = req.files.profileimage.size;
-	} else {
-		// Set a default image
-		var profileImageName = 'noimage.png';
-	}
-
 	// Form validation
 	req.checkBody('name','Name field is required').notEmpty();
 	req.checkBody('email','Email field is required').notEmpty();
@@ -69,8 +54,7 @@ router.post('/register', function(req, res, next) {
 			name: name,
 			email: email,
 			username: username,
-			password: password,
-			profileimage: profileImageName
+			password: password
 		});
 
 		// Create user

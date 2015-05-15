@@ -1,37 +1,29 @@
-<h1>Register</h1>
-<p>Please register using the form below.</p>
-<ul class="errors">
-	{{#if errors}}
-		{{#each errors}}
-			<li class="alert alert-danger">{{msg}}</li>
-		{{/each}}
-	{{/if}}
-</ul>
-<form action="register" method="post" enctype="ultipart/form-data">
-	<div class="form-group">
-		<label for="">Name</label>
-		<input class="form-control" type="text" name="name" placeholder="Enter name">
-	</div>
+<div class="login-box">
+	<div class="vertical-center-wrapper login-horizontal-center">
+		<div class="vertical-center login-group">
+			<h1>Register</h1>
 
-	<div class="form-group">
-		<label for="">Email</label>
-		<input class="form-control" type="email" name="email" placeholder="Enter email">
-	</div>
+			{{errors}}
+			<form action="register" method="post">
+				<div class="text-input">
+					<input type="text" name="name" placeholder="Full name">
+				</div>
 
-	<div class="form-group">
-		<label for="">Username</label>
-		<input class="form-control" type="text" name="username" placeholder="Enter username">
-	</div>
+				<div class="text-input">
+					<input type="email" name="email" placeholder="Your email">
+				</div>
 
-	<div class="form-group">
-		<label for="">Password</label>
-		<input class="form-control" type="password" name="password" placeholder="Enter password">
-	</div>
+				<div class="text-input">
+					<input type="password" name="password" placeholder="Password">
+				</div>
 
-	<div class="form-group">
-		<label for="">Confirm password</label>
-		<input class="form-control" type="password" name="password2" placeholder="Confirm password">
-	</div>
+				<div class="text-input">
+					<input type="password" name="password2" placeholder="Confirm password">
+				</div>
 
-	<input type="submit" name="submit" class="btn btn-default" value="Register">
-</form>
+				<button class="login-submit" type="submit" name="submit">Register</button>
+				<a href="login" class="register">or Login</a>
+			</form>
+		</div>
+	</div>
+</div>

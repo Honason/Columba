@@ -1,21 +1,20 @@
 <div class="login-box">
-	<div class="vertical-center-wrapper">
+	<div class="vertical-center-wrapper login-horizontal-center">
 		<div class="vertical-center login-group">
 			<h1>Come in</h1>
 
 			{{locals.flash.error}}
 			<form action="login" method="post">
-				<div class="padding-group">
-					<div class="text-input">
-						<input type="email" name="email" placeholder="Type in your email">
-					</div>
+				<div class="text-input">
+					<input type="email" name="email" placeholder="Type in your email">
+				</div>
 
-					<div class="text-input">
-						<input type="password" name="password" placeholder="and password.">
-					</div>
+				<div class="text-input">
+					<input type="password" name="password" placeholder="and password.">
 				</div>
 
 				<button class="login-submit" type="submit" name="submit">Login</button>
+				<a href="register" class="register">or Register</a>
 			</form>
 		</div>
 	</div>

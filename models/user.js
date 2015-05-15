@@ -5,14 +5,14 @@ var db = mongoose.connection;
 
 // User Schema
 var UserSchema = mongoose.Schema({
-	password:{
-		type: String, required: true, bcrypt:true
+	name:{
+		type: String
 	},
 	email: {
 		type:String
 	},
-	name:{
-		type: String
+	password:{
+		type: String, required: true, bcrypt:true
 	}
 });
 
@@ -29,8 +29,8 @@ module.exports.getUserById = function(id, callback){
 	User.findById(id, callback);
 }
 
-module.exports.getUserByUsername = function(username, callback){
-	var query = {email: username};
+module.exports.getUserByEmail = function(email, callback){
+	var query = {email: email};
 	User.findOne(query, callback);
 }
 

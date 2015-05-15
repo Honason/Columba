@@ -12,7 +12,7 @@ var multer = require('multer');
 var flash = require('connect-flash');
 var mongo = require('mongodb');
 var mongoose = require('mongoose');
-var sassMiddleware = require('node-sass-middleware');
+var hbs = require('express-hbs');
 
 mongoose.connect('mongodb://root:root@ds039311.mongolab.com:39311/node-workshop');
 
@@ -23,6 +23,11 @@ var users = require('./routes/users');
 
 var app = express();
 
+app.engine('hbs', hbs.express4({
+  defaultLayout: __dirname + '/views/layouts/main.hbs',
+  partialsDir: __dirname + '/views/partials',
+  layoutsDir: __dirname + '/views/layouts'
+}));
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
@@ -66,16 +71,6 @@ app.use(expressValidator({
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-
-var srcPath = __dirname + '/public/stylesheets';
-var destPath = __dirname + '/public/styles';
-app.use('/styles', sassMiddleware({
-  src: srcPath,
-  dest: destPath,
-  debug: true,
-  outputStyle: 'expanded'
-}));
-
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(flash());
 app.use(function (req, res, next) {

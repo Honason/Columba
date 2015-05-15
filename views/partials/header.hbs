@@ -1,0 +1,9 @@
+<a href="/">Members</a>
+
+{{#unless user}}
+    <a href="/users/register">Register</a>
+    <a href="/users/login">Login</a>
+{{/unless}}
+	{{#if user}}
+    <a href="/users/logout">Logout</a>
+{{/if}}

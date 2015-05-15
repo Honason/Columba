@@ -18,7 +18,8 @@ router.get('/register', function(req, res, next) {
 
 router.get('/login', function(req, res, next) {
   res.render('login', {
-  	'title': 'Login'
+  	'title': 'Login - Columba',
+  	locals: {flash: req.flash()}
   });
 });
 
@@ -81,7 +82,10 @@ passport.deserializeUser(function(id, done) {
   });
 });
 
-passport.use(new LocalStrategy(
+passport.use(new LocalStrategy({
+		usernameField: 'email',
+		passwordField: 'password'
+	},
 	function(username, password, done){
 		User.getUserByUsername(username, function(err, user){
 			if (err) throw err;

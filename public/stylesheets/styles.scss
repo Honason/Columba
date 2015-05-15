@@ -9,6 +9,7 @@ html { box-sizing: border-box; }
 body {
 	background-color: $color-light-gray;
 	font-family: 'Roboto', sans-serif;
+	font-weight: lighter;
 }
 
 /* Headings */
@@ -44,6 +45,15 @@ button {
 	height: 100%;
 	background-color: $color-dark-blue;
 
+	.columba-login-logo {
+		position: absolute;
+		top: 160px;
+		left: 0;
+		right: 0;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
 	.login-horizontal-center {
 		width: 40%;
 		margin-left: auto;
@@ -55,6 +65,12 @@ button {
 	}
 
 	.login-group {
+		span.error-message {
+			float: left;
+			width: 100%;
+			color: white;
+			margin-bottom: 20px;
+		}
 		div.text-input {
 			width: 100%;
 			input {
@@ -67,7 +83,6 @@ button {
 				border-bottom: 1px solid $color-lighter-dark-blue;
 				color: white;
 				transition: border-bottom .3s;
-				font-weight: lighter;
 				&:focus {
 					border-bottom: 1px solid white;
 				}
@@ -84,7 +99,6 @@ button {
 			color: white;
 			text-align: left;
 			padding: 10px 20px 10px 50px;
-			font-weight: lighter;
 			transition: background-color .3s;
 			&:hover, &:focus {
 				background-color: lighten($color-blue, 5%);
@@ -95,7 +109,6 @@ button {
 			float: left;
 			color: rgba(255,255,255,0.5);
 			text-decoration: none;
-			font-weight: lighter;
 			padding: 15px 20px;
 			transition: color .3s;
 			outline:none;

@@ -7,7 +7,9 @@ var User = require('../models/user');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
+  if (!req.user) {
+	  res.redirect('/users/login');
+  }
 });
 
 router.get('/register', function(req, res, next) {
@@ -19,7 +21,7 @@ router.get('/register', function(req, res, next) {
 router.get('/login', function(req, res, next) {
   res.render('login', {
   	'title': 'Login - Columba',
-  	locals: {flash: req.flash()}
+  	messages: {flash: req.flash()}
   });
 });
 
@@ -44,9 +46,7 @@ router.post('/register', function(req, res, next) {
 		res.render('register', {
 			errors: errors,
 			name: name,
-			email: email,
-			password: password,
-			password2: password2
+			email: email
 		});
 	} else {
 		User.getUserByEmail(email, function(err, user){
@@ -54,7 +54,9 @@ router.post('/register', function(req, res, next) {
 			if (user) {
 				console.log('User already registered');
 				res.render('register', {
-					errors: 'This email address is already registered.'
+					errors: [{msg: 'This email address is already registered.'}],
+					name: name,
+					email: email
 				})
 			} else {
 				var newUser = new User ({

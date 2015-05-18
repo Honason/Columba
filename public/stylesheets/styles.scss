@@ -18,6 +18,20 @@ h1 {
 	font-size: 2.7em;
 }
 
+/* Helpers */
+.container {
+	max-width: 1000px;
+	overflow: hidden;
+	margin-left: auto;
+	margin-right: auto;
+}
+.pull-right {
+	float: right;
+}
+.pull-left {
+	float: left;
+}
+
 /* Centering */
 .vertical-center-wrapper {
 	display: table;
@@ -36,6 +50,52 @@ input {
 }
 button {
 	outline:none;
+}
+
+/* Header */
+div.header {
+	background-color: $color-dark-blue;
+	height: 150px;
+	color: white;
+	padding-top: 10px;
+	font-size: 11pt;
+
+	a {
+		color: white;
+		text-decoration: none;
+		transition: opacity .2s;
+		opacity: 1;
+
+		&:hover {
+			opacity: 0.8;
+		}
+	}
+
+	.right-menu {
+		margin-top: 14px;
+
+		a {
+			margin-left: 14px;
+		}
+	}
+
+	.left-menu {
+		margin-top: 6px;
+
+		a {
+			float: left;
+			margin-right: 20px;
+
+			img {
+				float: left;
+			}
+			span {
+				margin-top: 9px;
+				margin-left: 6px;
+				float: left;
+			}
+		}
+	}
 }
 
 /* Login Box */
@@ -179,3 +239,71 @@ button {
 			}
 	}
 }
+
+/* Paper */
+.paper-parent {
+	margin-top: -50px;
+}
+
+$paper-header-height: 50px;
+
+.paper {
+	float: left;
+	width: 100%;
+	background-color: white;
+
+	.paper-header {
+		height: $paper-header-height;
+
+		div.left-section {
+			float: left;
+
+			a {
+				float: left;
+				height: $paper-header-height;
+				line-height: $paper-header-height + 2;
+				color: $color-blue;
+				text-decoration: none;
+				padding: 0px 24px;
+				font-weight: normal;
+
+				&.create-proposal {
+					background-image: url('/images/icon_new_proposal.svg');
+					background-repeat: no-repeat;
+					background-position: 24px center;
+					padding: 0 24px 0 54px;
+				}
+			}
+		}
+		div.search {
+			width: auto;
+			overflow: hidden;
+
+			.search-input {
+				background-color: $color-blue;
+				background-image: url('/images/icon_search.svg');
+				background-repeat: no-repeat;
+				background-position: 20px center;
+				width: 100%;
+				padding: 0 20px 0 46px;
+				color: white;
+				transition: background-color .3s;
+
+				&:hover, &:focus {
+					background-color: lighten($color-blue, 5%);
+				}
+			}
+		}
+	}
+
+	.paper-content {
+		float: left;
+		width: 100%;
+		padding: 24px;
+	}
+}
+
+
+
+
+

@@ -14,7 +14,7 @@ router.get('/', function(req, res, next) {
 
 router.get('/register', function(req, res, next) {
   res.render('register', {
-  	'title': 'Register'
+  	'title': 'Register - Columba'
   });
 });
 

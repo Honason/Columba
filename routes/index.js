@@ -3,7 +3,7 @@ var router = express.Router();
 
 // Members page
 router.get('/', ensureAuthenticated, function(req, res, next) {
-  res.render('index', { title: 'Members' });
+  res.render('index', { title: 'Dashboard - Columba' });
 });
 
 function ensureAuthenticated(req, res, next){

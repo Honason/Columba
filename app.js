@@ -13,7 +13,7 @@ var flash = require('connect-flash');
 var mongo = require('mongodb');
 var mongoose = require('mongoose');
 var hbs = require('express-hbs');
-
+ 
 mongoose.connect('mongodb://root:root@ds039311.mongolab.com:39311/node-workshop');
 
 var db = mongoose.connection;

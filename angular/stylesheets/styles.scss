@@ -271,7 +271,7 @@ $paper-header-height: 50px;
 				font-weight: normal;
 
 				&.create-proposal {
-					background-image: url('/images/icon_new_proposal.svg');
+					background-image: url('../images/icon_new_proposal.svg');
 					background-repeat: no-repeat;
 					background-position: 24px center;
 					padding: 0 24px 0 54px;
@@ -284,7 +284,7 @@ $paper-header-height: 50px;
 
 			.search-input {
 				background-color: $color-blue;
-				background-image: url('/images/icon_search.svg');
+				background-image: url('../images/icon_search.svg'); 
 				background-repeat: no-repeat;
 				background-position: 20px center;
 				width: 100%;

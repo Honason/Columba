@@ -1,0 +1,1 @@
+{"version":3,"file":"app-min.js","sources":["../app.js","../routes.js","../controllers.js"],"names":["columbaApp","angular","module","config","$routeProvider","when","templateUrl","controller","$scope","$location"],"mappings":"AACA,GAAIA,YAAaC,QAAQC,OAAO,cAAe,UAAW,cCC1DF,YAAWG,QAAQ,SAASC,GAC3BA,EAECC,KAAK,KACLC,YAAa,mBACbC,WAAY,uBCLdP,WAAWO,WAAW,mBAAoB,SAAU,YAAa,SAASC,EAAQC"}

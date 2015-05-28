@@ -1,16 +1,36 @@
 var express = require('express');
 var router = express.Router();
+var jwt = require('jsonwebtoken');
 
 // Members page
-router.get('/', ensureAuthenticated, function(req, res, next) {
-  res.render('index', { title: 'Dashboard - Columba' });
+router.get('/', function(req, res, next) {
+  	res.render('index', {});
 });
 
 function ensureAuthenticated(req, res, next){
-	if (req.isAuthenticated()) {
-		return next();
+	var token = req.body.token || req.query.token || req.headers.authorization;
+
+	// decode token
+	if (token) {
+		// verifies secret and checks exp
+		jwt.verify(token, 'supersecret', function(err, decoded) {      
+			if (err) {
+				return res.json({ success: false, message: 'Failed to authenticate token.' });
+			} else {
+				// if everything is good, save to request for use in other routes
+				req.decoded = decoded;    
+				next();
+			}
+		});
+
+	} else { 
+		// if there is no token
+		// return an error
+		return res.status(403).send({ 
+		    success: false, 
+		    message: 'No token provided.' 
+		});
 	}
-	res.redirect('/users/login');
 }
 
 module.exports = router;

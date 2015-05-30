@@ -4,17 +4,23 @@
 		<div class="vertical-center login-group">
 			<h1>Come in</h1>
 
-			<form ng-submit="login()">
+			<form name="loginform" ng-submit="loginform.$valid && login()" novalidate>
 				<div class="text-input">
-					<input ng-model="email" type="email" name="email" placeholder="Type in your email" value="">
+					<input ng-model="email" type="email" name="email" placeholder="Type in your email" required>
+					<div ng-show="loginform.$submitted">
+				    	<div class="validation-message" ng-show="loginform.email.$error.required">Email is required.</div>
+				    </div>
 				</div>
 
-				<div class="text-input">
-					<input ng-model="password" type="password" name="password" placeholder="and password.">
+				<div class="text-input" style="margin-bottom: 30px;">
+					<input ng-model="password" type="password" name="password" placeholder="and password." required>
+					<div ng-show="loginform.$submitted">
+				    	<div class="validation-message" ng-show="loginform.password.$error.required">Password is required.</div>
+				    </div>
 				</div>
 
 				<button class="login-submit" type="submit" name="submit">Login</button>
-				<a href="register" class="register">or Register</a>
+				<a href="#/register" class="register">or Register</a>
 			</form>
 		</div>
 	</div>

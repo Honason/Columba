@@ -5,13 +5,18 @@ columbaApp.config(['$routeProvider', '$httpProvider', function($routeProvider, $
 
     .when('/', {
         templateUrl: 'angular/pages/dashboard.html',
-        controller: 'dashboardController'
+        controller: 'dashboardController' 
     })
 
 	.when('/login', {
 		templateUrl: 'angular/pages/login.html',
 		controller: 'loginController'
-	});
+	})
+
+    .when('/register', {
+        templateUrl: 'angular/pages/register.html',
+        controller: 'loginController'
+    });
 
 	$httpProvider.interceptors.push(['$q', '$location', '$localStorage', function($q, $location, $localStorage) {
         return {

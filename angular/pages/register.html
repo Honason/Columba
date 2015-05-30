@@ -1,0 +1,37 @@
+<div class="login-box">
+	<img class="columba-login-logo" src="/angular/images/columba_logo.svg" alt="Columba logo">
+	<div class="vertical-center-wrapper login-horizontal-center">
+		<div class="vertical-center login-group">
+			<h1>Register</h1>
+
+			<form name="registerform" ng-submit="registerform.$valid && !emailregistered && register()" novalidate>
+				<div class="text-input">
+					<input ng-model="newName" type="text" name="name" placeholder="Type in your name" required>
+					<div ng-show="registerform.$submitted || registerform.name.$touched">
+				    	<div class="validation-message" ng-show="registerform.name.$error.required">Name is required.</div>
+				    </div>
+				</div>
+
+				<div class="text-input">
+					<input ng-model="newEmail" ng-model-options="{debounce: 250}" type="email" name="newEmail" placeholder="Type in your email" required>
+					<div ng-show="registerform.$submitted || registerform.newEmail.$touched">
+				    	<div class="validation-message" ng-show="registerform.newEmail.$error.required">Email is required.</div>
+				    	<div class="validation-message" ng-show="registerform.newEmail.$error.email">Email is not valid.</div>
+				    </div>
+				    <div class="validation-message" ng-show="emailregistered">Email is already registered.</div>
+				</div>
+
+				<div class="text-input" style="margin-bottom: 30px;">
+					<input ng-model="newPassword" ng-minlength="5" type="password" name="password" placeholder="and password." required>
+					<div ng-show="registerform.$submitted || registerform.password.$touched">
+				    	<div class="validation-message" ng-show="registerform.password.$error.required">Password is required.</div>
+				    	<div class="validation-message" ng-show="registerform.password.$error.minlength">Password is too short.</div>
+				    </div>
+				</div>
+
+				<button class="login-submit" type="submit" name="submit">Register</button>
+				<a href="#/login" class="register">or Login</a>
+			</form>
+		</div>
+	</div>
+</div>

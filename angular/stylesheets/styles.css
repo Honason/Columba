@@ -98,16 +98,11 @@ div.header {
   .login-box .login-group {
     /* Autofill */
     /* Placeholder */ }
-    .login-box .login-group span.error-message {
-      float: left;
-      width: 100%;
-      color: white;
-      margin-bottom: 20px; }
     .login-box .login-group div.text-input {
       width: 100%; }
       .login-box .login-group div.text-input input {
         width: 100%;
-        margin-bottom: 30px;
+        margin-top: 20px;
         background-color: transparent;
         border-left: none;
         border-right: none;
@@ -131,6 +126,11 @@ div.header {
       transition: background-color .3s; }
       .login-box .login-group button.login-submit:hover, .login-box .login-group button.login-submit:focus {
         background-color: #127fec; }
+    .login-box .login-group div.validation-message {
+      background-color: #4B6B8B;
+      font-size: 10pt;
+      padding: 6px;
+      color: white; }
     .login-box .login-group a.register {
       float: left;
       color: rgba(255, 255, 255, 0.5);

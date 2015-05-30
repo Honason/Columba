@@ -128,17 +128,11 @@ div.header {
 	}
 
 	.login-group {
-		span.error-message {
-			float: left;
-			width: 100%;
-			color: white;
-			margin-bottom: 20px;
-		}
 		div.text-input {
 			width: 100%;
 			input {
 				width: 100%;
-				margin-bottom: 30px;
+				margin-top: 20px;
 				background-color: transparent;
 				border-left: none;
 				border-right: none;
@@ -166,6 +160,13 @@ div.header {
 			&:hover, &:focus {
 				background-color: lighten($color-blue, 5%);
 			}
+		}
+
+		div.validation-message {
+			background-color: $color-lighter-dark-blue;
+			font-size: 10pt;
+			padding: 6px;
+			color: white;
 		}
 
 		a.register {

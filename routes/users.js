@@ -8,22 +8,7 @@ var User = require('../models/user');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  if (!req.user) {
-	  res.redirect('/users/login');
-  }
-});
-
-router.get('/register', function(req, res, next) {
-  res.render('register', {
-  	'title': 'Register - Columba'
-  });
-});
-
-router.get('/login', function(req, res, next) {
-  res.render('login', {
-  	'title': 'Login - Columba',
-  	messages: {flash: req.flash()}
-  });
+  res.redirect('/');
 });
 
 router.post('/getall', function(req, res, next) {
@@ -39,6 +24,31 @@ router.post('/getall', function(req, res, next) {
 			});
 		}
 	});
+});
+
+router.post('/isemailregistered', function(req, res, next){
+	var email = req.body.email;
+
+	if (email !== null && email !== "") {
+		User.getUserByEmail(email, function(err, user){
+			if (err) throw err;
+			if (user) {
+				res.json({
+					success: true,
+					emailRegistered: true
+				});
+			} else {
+				res.json({
+					success: true,
+					emailRegistered: false
+				});
+			}
+		});
+	} else {
+		res.json({
+			success: false
+		});
+	}
 });
 
 router.post('/register', function(req, res, next) {
@@ -86,7 +96,7 @@ router.post('/register', function(req, res, next) {
 
 				res.json({
 					success: true,
-					message: 'Registrated'
+					message: 'Registered'
 				});
 			}
 		});

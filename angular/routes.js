@@ -5,7 +5,8 @@ columbaApp.config(['$routeProvider', '$httpProvider', function($routeProvider, $
 
     .when('/', {
         templateUrl: 'angular/pages/dashboard.html',
-        controller: 'dashboardController' 
+        controller: 'dashboardController' ,
+        reloadOnSearch: false
     })
 
 	.when('/login', {

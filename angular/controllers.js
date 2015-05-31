@@ -17,17 +17,29 @@ columbaApp.controller('loginController', ['$scope', '$location', '$log', 'authSe
 	});
 }]);
 
-columbaApp.controller('dashboardController', ['$scope', 'authService', 'userService', function($scope, authService, userService){
+columbaApp.controller('dashboardController', ['$scope', 'authService', 'userService', '$location', '$log', function($scope, authService, userService, $location, $log){
 	$scope.authService = authService;
 	var userName = authService.EnsureAuthenticated();
 
-	if (userName) {
+	if (userName) { // ensure user is logged in
 		$scope.userName = userName;
-		
-		// Do something in Dashboard
-		userService.GetAllUsers(function(users){
-			$scope.users = users;
+
+		$scope.$on('$routeUpdate', function() {  // when route changes
+			adjustRoutes();
 		});
 
+		var adjustRoutes = function() {
+			if ($location.search().newProposal) {
+				// New proposal section
+				$log.log("New proposal.");
+			} else {
+				// Normal Dashboard section
+				userService.GetAllUsers(function(users){
+					$scope.users = users;
+				});
+			}
+		};
+
+		adjustRoutes(); // Check whether user wants something else than Dashboard
 	}
 }]);

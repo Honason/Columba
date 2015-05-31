@@ -10,7 +10,7 @@ columbaApp.service('userService', ['$http', function($http){
 
 }]);
 
-columbaApp.service('authService', ['$http', '$log', '$localStorage', '$location', '$timeout' function($http, $log, $localStorage, $location, $timeout){
+columbaApp.service('authService', ['$http', '$log', '$localStorage', '$location', '$timeout', function($http, $log, $localStorage, $location, $timeout){
 
 	var self = this;
 

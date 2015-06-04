@@ -11,29 +11,6 @@ columbaApp.service('dataService', ['$log', function($log){
 
 }]);
 
-columbaApp.service('transitionService', ['$log', '$timeout', '$location', 'dataService', function($log, $timeout, $location, dataService){
-
-	this.GoToPage = function(url) {
-		dataService.lastPath = dataService.currentPath;
-		dataService.lastPath += ' anim-exit';
-		dataService.currentPath = url.replace("/", "");
-
-		$timeout(function(){
-			$location.path(url);
-		}, 200);
-	};
-
-	this.CheckPreviousState = function() {
-		dataService.lastPath = dataService.lastPath.replace(" anim-exit", "");
-		dataService.currentPath = $location.path().replace("/", "");
-
-		if (dataService.lastPath !== "empty") {
-			dataService.lastPath += ' anim-start';
-		}
-	};
-
-}]);
-
 columbaApp.service('userService', ['$http', function($http){
 	 
 	this.GetAllUsers = function(callback) {
@@ -94,6 +71,6 @@ columbaApp.service('authService', ['$http', '$log', '$localStorage', '$location'
 
 	this.Logout = function() {
 		$localStorage.$reset();
-		$location.path('/login');
+		transitionService.GoToPage('/login')
 	};
 }]);

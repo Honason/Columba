@@ -102,7 +102,6 @@ div.header {
       width: 100%; }
       .login-box .login-group div.text-input input {
         width: 100%;
-        margin-top: 20px;
         background-color: transparent;
         border-left: none;
         border-right: none;
@@ -127,10 +126,14 @@ div.header {
       .login-box .login-group button.login-submit:hover, .login-box .login-group button.login-submit:focus {
         background-color: #127fec; }
     .login-box .login-group div.validation-message {
-      background-color: #4B6B8B;
-      font-size: 10pt;
-      padding: 6px;
+      padding-top: 4px;
+      float: left;
+      font-size: 9pt;
       color: white; }
+    .login-box .login-group div.validation-messages {
+      float: left;
+      height: 20px;
+      width: 100%; }
     .login-box .login-group span.register {
       cursor: pointer;
       float: left;
@@ -305,34 +308,11 @@ div.header {
       background: linear-gradient(to bottom, rgba(244, 250, 255, 0) 0%, #f4faff 100%);
       filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00f4faff', endColorstr='#f4faff',GradientType=0 ); }
 
-/* Animations */
-.login-box .login-group {
-  transition: all .2s; }
-.login-box.from-register.anim-start .login-group, .login-box.from-login.to-register.anim-start .login-group {
-  animation: loginReveal 200ms cubic-bezier(0.12, 0.65, 0.55, 0.95) both; }
-.login-box.from-register.anim-exit .login-group, .login-box.from-login.to-register.anim-exit .login-group {
-  animation: loginFadeOut 200ms cubic-bezier(0.12, 0.65, 0.55, 0.95) both; }
-.login-box.from-register.to-.anim-exit .login-group, .login-box.from-login.to-.anim-exit .login-group {
-  animation: loginToDashboard 200ms cubic-bezier(0.12, 0.65, 0.55, 0.95) both; }
-
-@keyframes loginReveal {
-  0% {
-    transform: translateX(200px);
-    opacity: 0; }
-  100% {
-    transform: translateX(0px);
-    opacity: 1; } }
-@keyframes loginFadeOut {
-  0% {
-    transform: translateX(0px);
-    opacity: 1; }
-  100% {
-    transform: translateX(-200px);
-    opacity: 0; } }
-@keyframes loginToDashboard {
-  0% {
-    transform: translateY(0px);
-    opacity: 1; }
-  100% {
-    transform: translateY(-200px);
-    opacity: 0; } }
+/* Animation helpers */
+.prepare .header .right-menu, .prepare .header .left-menu {
+  opacity: 0; }
+.prepare .container.paper-parent {
+  opacity: 0;
+  margin-top: 0px; }
+.prepare .login-group {
+  opacity: 0; }

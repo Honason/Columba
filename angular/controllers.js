@@ -6,7 +6,6 @@ columbaApp.controller('loginController', ['$scope', '$location', '$log', 'authSe
   	$scope.transitionService = transitionService;
   	transitionService.CheckPreviousState();
   	$scope.dataService = dataService;
-  	//dataService.SetLastPath($location.path());
 
 	$scope.login = function() {
 		authService.Login($scope.email, $scope.password);
@@ -27,6 +26,7 @@ columbaApp.controller('loginController', ['$scope', '$location', '$log', 'authSe
 columbaApp.controller('dashboardController', ['$scope', 'authService', 'userService', '$location', '$log', 'dataService', 'transitionService',
  function($scope, authService, userService, $location, $log, dataService, transitionService){
 	$scope.authService = authService;
+	$scope.transitionService = transitionService;
 	var userName = authService.EnsureAuthenticated();
 
 	if (userName) { // ensure user is logged in
@@ -49,5 +49,7 @@ columbaApp.controller('dashboardController', ['$scope', 'authService', 'userServ
 		};
 
 		adjustRoutes(); // Check whether user wants something else than Dashboard
+
+		transitionService.CheckPreviousState();
 	}
 }]);

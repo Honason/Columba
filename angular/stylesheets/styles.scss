@@ -132,7 +132,6 @@ div.header {
 			width: 100%;
 			input {
 				width: 100%;
-				margin-top: 20px;
 				background-color: transparent;
 				border-left: none;
 				border-right: none;
@@ -163,10 +162,17 @@ div.header {
 		}
 
 		div.validation-message {
-			background-color: $color-lighter-dark-blue;
-			font-size: 10pt;
-			padding: 6px;
+			//background-color: $color-lighter-dark-blue;
+			padding-top: 4px;
+			float: left;
+			font-size: 9pt;
 			color: white;
+		}
+
+		div.validation-messages {
+			float: left;
+			height: 20px;
+			width: 100%;
 		}
 
 		span.register {
@@ -406,38 +412,19 @@ $paper-header-height: 50px;
 	}
 }
 
-/* Animations */
+/* Animation helpers */
 
-.login-box {
+.prepare {
+	.header .right-menu, .header .left-menu {
+		opacity: 0;
+	}
+
+	.container.paper-parent {
+		opacity: 0;
+		margin-top: 0px;
+	}
+
 	.login-group {
-		transition: all .2s;
+		opacity: 0;
 	}
-
-	&.from-register.anim-start .login-group, &.from-login.to-register.anim-start .login-group {
-		animation: loginReveal 200ms cubic-bezier(.12,.65,.55,.95) both;
-	}
-
-	&.from-register.anim-exit .login-group, &.from-login.to-register.anim-exit .login-group {
-		animation: loginFadeOut 200ms cubic-bezier(.12,.65,.55,.95) both;
-	}
-
-	&.from-register.to-.anim-exit .login-group, &.from-login.to-.anim-exit .login-group {
-		animation: loginToDashboard 200ms cubic-bezier(.12,.65,.55,.95) both;
-	}
-
-}
-
-@keyframes loginReveal {
-	0% { transform: translateX(200px); opacity: 0;}
-	100% { transform: translateX(0px); opacity: 1;}
-}
-
-@keyframes loginFadeOut {
-	0% { transform: translateX(0px); opacity: 1;}
-	100% { transform: translateX(-200px); opacity: 0;}
-}
-
-@keyframes loginToDashboard {
-	0% { transform: translateY(0px); opacity: 1;}
-	100% { transform: translateY(-200px); opacity: 0;}
 }

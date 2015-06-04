@@ -311,6 +311,8 @@ div.header {
 /* Animation helpers */
 .prepare .header .right-menu, .prepare .header .left-menu {
   opacity: 0; }
+.prepare.bigHeader .header {
+  height: 3000px; }
 .prepare .container.paper-parent {
   opacity: 0;
   margin-top: 0px; }

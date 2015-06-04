@@ -419,6 +419,10 @@ $paper-header-height: 50px;
 		opacity: 0;
 	}
 
+	&.bigHeader .header {
+		height: 3000px;
+	}
+
 	.container.paper-parent {
 		opacity: 0;
 		margin-top: 0px;

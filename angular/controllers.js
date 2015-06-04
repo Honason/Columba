@@ -1,6 +1,13 @@
 // Controllers
 
-columbaApp.controller('loginController', ['$scope', '$location', '$log', 'authService', function($scope, $location, $log, authService){
+columbaApp.controller('loginController', ['$scope', '$location', '$log', 'authService', 'dataService', 'transitionService', 
+  function($scope, $location, $log, authService, dataService, transitionService){
+
+  	$scope.transitionService = transitionService;
+  	transitionService.CheckPreviousState();
+  	$scope.dataService = dataService;
+  	//dataService.SetLastPath($location.path());
+
 	$scope.login = function() {
 		authService.Login($scope.email, $scope.password);
 	};
@@ -17,7 +24,8 @@ columbaApp.controller('loginController', ['$scope', '$location', '$log', 'authSe
 	});
 }]);
 
-columbaApp.controller('dashboardController', ['$scope', 'authService', 'userService', '$location', '$log', function($scope, authService, userService, $location, $log){
+columbaApp.controller('dashboardController', ['$scope', 'authService', 'userService', '$location', '$log', 'dataService', 'transitionService',
+ function($scope, authService, userService, $location, $log, dataService, transitionService){
 	$scope.authService = authService;
 	var userName = authService.EnsureAuthenticated();
 

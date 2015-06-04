@@ -1,5 +1,39 @@
 // Services
 
+columbaApp.service('dataService', ['$log', function($log){
+	var self = this;
+	this.lastPath = "empty";
+	this.currentPath = "empty";
+
+	this.SetLastPath = function(path) {
+		self.lastPath = path.replace("/", "");
+	};
+
+}]);
+
+columbaApp.service('transitionService', ['$log', '$timeout', '$location', 'dataService', function($log, $timeout, $location, dataService){
+
+	this.GoToPage = function(url) {
+		dataService.lastPath = dataService.currentPath;
+		dataService.lastPath += ' anim-exit';
+		dataService.currentPath = url.replace("/", "");
+
+		$timeout(function(){
+			$location.path(url);
+		}, 200);
+	};
+
+	this.CheckPreviousState = function() {
+		dataService.lastPath = dataService.lastPath.replace(" anim-exit", "");
+		dataService.currentPath = $location.path().replace("/", "");
+
+		if (dataService.lastPath !== "empty") {
+			dataService.lastPath += ' anim-start';
+		}
+	};
+
+}]);
+
 columbaApp.service('userService', ['$http', function($http){
 	 
 	this.GetAllUsers = function(callback) {
@@ -10,7 +44,8 @@ columbaApp.service('userService', ['$http', function($http){
 
 }]);
 
-columbaApp.service('authService', ['$http', '$log', '$localStorage', '$location', '$timeout', function($http, $log, $localStorage, $location, $timeout){
+columbaApp.service('authService', ['$http', '$log', '$localStorage', '$location', '$timeout', 'transitionService', 
+  function($http, $log, $localStorage, $location, $timeout, transitionService){
 
 	var self = this;
 
@@ -32,7 +67,8 @@ columbaApp.service('authService', ['$http', '$log', '$localStorage', '$location'
 	      		$localStorage.token = token.token;
 	      		$localStorage.userName = token.name;
 
-	      		$location.path('/');
+	      		transitionService.GoToPage('/');
+	      		//$location.path('/');
       		}
 		}).error(function(err){
 			$log.log(err);

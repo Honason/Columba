@@ -20,7 +20,6 @@ columbaApp.service('transitionService', ['$log', '$timeout', '$location', 'dataS
 		else if (lp === "login" && cp === "") {
 			animSpeed = 0.3;
 			TweenMax.to([".login-group", ".columba-login-logo"], .25, {y: '-200px', opacity: 0, ease:Power2.easeIn});
-			//TweenMax.to(".login-box", animSpeed, {height: '150px', ease:Power3.easeInOut});
 		}
 
 		else if (lp === "" && cp === "login") { 
@@ -54,14 +53,13 @@ columbaApp.service('transitionService', ['$log', '$timeout', '$location', 'dataS
 			TweenMax.to(".blueHeader", 0, {height: window.innerHeight});
 
 			angular.element(document).ready(function () {
-				TweenMax.to(".paper-parent", 0.1, {marginTop: -50});
-		        TweenMax.fromTo(".paper-parent", 1, {y:300}, {y:0, ease:Power3.easeOut});
+				TweenMax.to(".paper-parent", 1, {marginTop: -50, ease:Power3.easeOut});
 		        TweenMax.to(".paper-parent", 0.5, {opacity: 1});
-		        $timeout(function(){
-		        	TweenMax.fromTo(".header", 0.6, {height:window.innerHeight}, {height:150, ease:Power3.easeInOut});
-					TweenMax.fromTo([".right-menu", ".left-menu"], 1, {opacity: 0, y:-10}, {opacity: 1, y:0});
-				}, 30);
 		        TweenMax.to(".blueHeader", 0, {height: 150});
+		        $timeout(function(){
+					TweenMax.fromTo([".right-menu", ".left-menu"], 1, {opacity: 0, y:-10}, {opacity: 1, y:0});
+					TweenMax.fromTo(".header", 0.6, {height:window.innerHeight}, {height:150, ease:Power3.easeInOut});
+				}, 30);
 		    });
 		}
 

@@ -63,11 +63,63 @@ div.header {
 	padding-top: 10px;
 	font-size: 11pt;
 
+	.container {
+		overflow: visible;
+	}
+
+	div.user-dropdown {
+
+		.user-name {
+			float: right;
+			padding-bottom: 6px;
+		}
+
+		ul.submenu {
+			background-color: #fff;
+			width: 100%;
+			opacity: 0;
+			display: none;
+			float: right;
+			clear: both;
+			list-style: none;
+			padding-left: 0px;
+			margin-bottom: 0px;
+			margin-top: 0px;
+
+			li {
+				color: $color-dark-blue;
+				font-weight: normal;
+				float: left;
+				cursor: pointer;
+				width: 100%;
+				padding: 10px 14px;
+				font-size: 10pt;
+				border-top: 1px solid #E8F5FF;
+
+				&:hover {
+					//border-left: 2px solid $color-blue;
+					color: $color-blue;
+				}
+			}
+		}
+
+		&:hover {
+			ul.submenu {
+				opacity: 1;
+				display: block;
+			}
+		}
+	}
+
 	a {
 		color: white;
 		text-decoration: none;
 		transition: opacity .2s;
 		opacity: 1;
+
+		&.settings {
+			margin-top: 1px;
+		}
 
 		&:hover {
 			opacity: 0.8;
@@ -75,7 +127,8 @@ div.header {
 	}
 
 	.right-menu {
-		margin-top: 14px;
+		margin-top: 8px;
+		position: relative;
 
 		a {
 			margin-left: 14px;
@@ -163,7 +216,6 @@ div.header {
 		}
 
 		div.validation-message {
-			//background-color: $color-lighter-dark-blue;
 			padding-top: 4px;
 			float: left;
 			font-size: 9pt;
@@ -263,20 +315,14 @@ $paper-header-height: 50px;
 	float: left;
 	width: 100%;
 	background-color: white;
-	border-radius: 4px;
-	border-top-right-radius: 6px;
 
 	.paper-header {
 		height: $paper-header-height;
 		background-color: $color-blue;
-		border-top-left-radius: 4px;
-		border-top-right-radius: 6px;
 
 		div.left-section {
 			float: left;
 			background-color: white;
-			border-top-left-radius: 4px;
-			border-top-right-radius: 4px;
 
 			a {
 				float: left;
@@ -299,12 +345,9 @@ $paper-header-height: 50px;
 			width: auto;
 			overflow: hidden;
 			background-color: white;
-			border-top-right-radius: 4px;
 
 			.search-input {
 				background-color: $color-blue;
-				border-bottom-left-radius: 4px;
-				//border-top-right-radius: 4px;
 				background-image: url('../images/icon_search.svg'); 
 				background-repeat: no-repeat;
 				background-position: 20px center;
@@ -448,7 +491,7 @@ $paper-header-height: 50px;
 
 	.container.paper-parent {
 		opacity: 0;
-		margin-top: 0px;
+		margin-top: 300px;
 	}
 
 	.login-group {

@@ -1,8 +1,17 @@
 <div class="header">
 	<div class="container">
-		<div class="pull-right right-menu" id="right-menu">
-			<a class="pull-left" href="#/" ng-click="authService.Logout()">{{ userName }}</a>
-			<a class="pull-left" href="#/" class="settings"><img src="angular/images/top_icon_settings.svg" alt="Settings"></a>
+		<div class="pull-right right-menu">
+			<div class="user-dropdown">
+				<div class="user-name">
+					<a class="pull-left" href="#/">{{ userName }}</a>
+					<a class="pull-left settings" href="#/"><img src="angular/images/top_icon_settings.svg" alt="Settings"></a>
+				</div>
+
+				<ul class="submenu">
+					<li ng-click="authService.Logout()">Logout</li>
+					<li>Settings</li>
+				</ul>
+			</div>
 		</div>
 
 		<div class="pull-left left-menu">

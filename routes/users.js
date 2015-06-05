@@ -11,10 +11,8 @@ router.get('/', function(req, res, next) {
   res.redirect('/');
 });
 
-router.post('/getall', function(req, res, next) {
-	
+router.post('/getall', User.ensureAuthenticated, function(req, res, next) {
 	User.find({}, function(err, users){
-
 		if (err) {
 			console.log(err);
 		} else {

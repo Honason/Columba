@@ -53,15 +53,48 @@ div.header {
   color: white;
   padding-top: 10px;
   font-size: 11pt; }
+  div.header .container {
+    overflow: visible; }
+  div.header div.user-dropdown .user-name {
+    float: right;
+    padding-bottom: 6px; }
+  div.header div.user-dropdown ul.submenu {
+    background-color: #fff;
+    width: 100%;
+    opacity: 0;
+    display: none;
+    float: right;
+    clear: both;
+    list-style: none;
+    padding-left: 0px;
+    margin-bottom: 0px;
+    margin-top: 0px; }
+    div.header div.user-dropdown ul.submenu li {
+      color: #08396A;
+      font-weight: normal;
+      float: left;
+      cursor: pointer;
+      width: 100%;
+      padding: 10px 14px;
+      font-size: 10pt;
+      border-top: 1px solid #E8F5FF; }
+      div.header div.user-dropdown ul.submenu li:hover {
+        color: #1072D4; }
+  div.header div.user-dropdown:hover ul.submenu {
+    opacity: 1;
+    display: block; }
   div.header a {
     color: white;
     text-decoration: none;
     transition: opacity .2s;
     opacity: 1; }
+    div.header a.settings {
+      margin-top: 1px; }
     div.header a:hover {
       opacity: 0.8; }
   div.header .right-menu {
-    margin-top: 14px; }
+    margin-top: 8px;
+    position: relative; }
     div.header .right-menu a {
       margin-left: 14px; }
   div.header .left-menu {
@@ -195,19 +228,13 @@ div.header {
 .paper {
   float: left;
   width: 100%;
-  background-color: white;
-  border-radius: 4px;
-  border-top-right-radius: 6px; }
+  background-color: white; }
   .paper .paper-header {
     height: 50px;
-    background-color: #1072D4;
-    border-top-left-radius: 4px;
-    border-top-right-radius: 6px; }
+    background-color: #1072D4; }
     .paper .paper-header div.left-section {
       float: left;
-      background-color: white;
-      border-top-left-radius: 4px;
-      border-top-right-radius: 4px; }
+      background-color: white; }
       .paper .paper-header div.left-section a {
         float: left;
         height: 50px;
@@ -224,11 +251,9 @@ div.header {
     .paper .paper-header div.search {
       width: auto;
       overflow: hidden;
-      background-color: white;
-      border-top-right-radius: 4px; }
+      background-color: white; }
       .paper .paper-header div.search .search-input {
         background-color: #1072D4;
-        border-bottom-left-radius: 4px;
         background-image: url("../images/icon_search.svg");
         background-repeat: no-repeat;
         background-position: 20px center;
@@ -333,6 +358,6 @@ div.header {
   height: 3000px; }
 .prepare .container.paper-parent {
   opacity: 0;
-  margin-top: 0px; }
+  margin-top: 300px; }
 .prepare .login-group {
   opacity: 0; }

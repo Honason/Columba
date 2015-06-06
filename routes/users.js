@@ -6,11 +6,11 @@ var jwt = require('jsonwebtoken');
 
 var User = require('../models/user');
 
-/* GET users listing. */
 router.get('/', function(req, res, next) {
   res.redirect('/');
 });
 
+/* GET users listing. */
 router.post('/getall', User.ensureAuthenticated, function(req, res, next) {
 	User.find({}, function(err, users){
 		if (err) {

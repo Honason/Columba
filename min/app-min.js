@@ -14,6 +14,7 @@ var db = mongoose.connection;
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var proposals = require('./routes/proposals');
 
 var app = express();
 
@@ -64,6 +65,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use('/', routes);
 app.use('/users', users);
+app.use('/proposals', proposals);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

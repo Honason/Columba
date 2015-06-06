@@ -71,6 +71,6 @@ columbaApp.service('authService', ['$http', '$log', '$localStorage', '$location'
 
 	this.Logout = function() {
 		$localStorage.$reset();
-		transitionService.GoToPage('/login')
+		transitionService.GoToPage('/login');
 	};
 }]);

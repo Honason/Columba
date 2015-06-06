@@ -40,13 +40,14 @@ columbaApp.service('transitionService', ['$log', '$timeout', '$location', 'dataS
 		var lp = dataService.lastPath;
 		var cp = dataService.currentPath;
 
+		$log.log("Previous: " + lp + ", Current: " + cp);
+
 		// Login / Register pages
 		if (lp === "register" && cp === "login" || lp === "login" && cp === "register") {
 			TweenLite.from(".login-group", .5, {y: 150, opacity: 0, ease:Power3.easeOut});
 		}
 
 		// Login to Dashboard
-		//$log.log("Previous: " + lp + ", Current: " + cp);
 		else if (lp === "login" && cp === "") {
 			self.animPrepare = "prepare bigHeader";
 
@@ -73,6 +74,27 @@ columbaApp.service('transitionService', ['$log', '$timeout', '$location', 'dataS
 		$timeout(function(){
 			self.animPrepare = "";
 		}, 1200);
+	};
+
+	this.OpenProposal = function() {
+		if (dataService.lastPath === "empty" && dataService.currentPath !== "") {
+			self.animPrepare = "proposal-direct";
+			angular.element(document).ready(function () {
+				$timeout(function(){
+					TweenMax.to(".proposal-wrapper", 0, {css:{'display': 'block'}});
+				}, 30);
+			});
+		} else {
+			TweenMax.to(".proposal-paper", 0, {y: window.innerHeight});
+			TweenMax.to(".proposal-wrapper", 0, {css:{'display': 'block'}});
+
+			TweenMax.to(".proposal-paper", 0.6, {y: 0, ease:Power3.easeOut});
+		}
+	};
+
+	this.CloseProposal = function() {
+		TweenMax.to(".proposal-paper", 0.6, {y: window.innerHeight, ease:Power3.easeIn});
+		TweenMax.to(".proposal-wrapper", 0, {css:{'display': 'none'}, delay: 1});
 	};
 
 }]);

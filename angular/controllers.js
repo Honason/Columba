@@ -33,22 +33,25 @@ columbaApp.controller('dashboardController', ['$scope', 'authService', 'userServ
 		$scope.userName = userName;
 
 		$scope.$on('$routeUpdate', function() {  // when route changes
-			adjustRoutes();
+			adjustRoutes(true);
 		});
 
-		var adjustRoutes = function() {
+		var adjustRoutes = function(inPage) {
 			if ($location.search().newProposal) {
 				// New proposal section
-				$log.log("New proposal.");
+
+				transitionService.OpenProposal();
 			} else {
 				// Normal Dashboard section
+				if (inPage) {transitionService.CloseProposal();}
+
 				userService.GetAllUsers(function(users){
 					$scope.users = users;
 				});
 			}
 		};
 
-		adjustRoutes(); // Check whether user wants something else than Dashboard
+		adjustRoutes(false); // Check whether user wants something else than Dashboard
 
 		transitionService.CheckPreviousState();
 	}

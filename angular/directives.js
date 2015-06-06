@@ -16,3 +16,10 @@ columbaApp.directive('proposalItem', function(){
 		}
 	};
 });
+
+columbaApp.directive('proposal', function(){
+	return {
+		templateUrl: 'angular/directives/proposal.html',
+		replace: true
+	};
+});

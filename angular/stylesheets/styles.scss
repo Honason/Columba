@@ -75,8 +75,12 @@ div.header {
 		}
 
 		ul.submenu {
+			position: absolute;
+			z-index: 20;
+			top: 25px;
+			right: 0px;
+			width: 120px;
 			background-color: #fff;
-			width: 100%;
 			opacity: 0;
 			display: none;
 			float: right;
@@ -382,6 +386,11 @@ $paper-header-height: 50px;
 
 /* Proposal Page */
 .proposal-wrapper {
+	position: absolute;
+	top: 0px;
+	background-color: rgba(8, 57, 106, 0.8);
+	width: 100%;
+	height: 100%;
 	display: none;
 	.proposal-paper {
 		position: fixed;
@@ -393,57 +402,99 @@ $paper-header-height: 50px;
 		margin-left: auto;
 		margin-right: auto;
 
+		.p-header {
+			background-color: white;
+			float: left;
+			width: 100%;
+			height: 50px;
+
+			.status {
+				color: $color-blue;
+				font-size: 10pt;
+				line-height: 50px;
+				padding-left: 34px;
+			}
+
+			.close-proposal {
+				height: 50px;
+				width: 50px;
+				background-color: $color-blue;
+				background-image: url('../images/close_proposal_icon.svg');
+				background-position: center center;
+				background-repeat: no-repeat;
+				cursor: pointer;
+				transition: background-color .3s;
+
+				&:hover {
+					background-color: lighten($color-blue, 5%);
+				}
+			}
+
+			.p-header-button {
+				cursor: pointer;
+				color: $color-blue;
+				line-height: 50px;
+				font-weight: normal;
+				padding: 0px 20px;
+				transition: background-color .3s;
+
+				&:hover {
+					background-color: #F2F2F2;
+				}
+			}
+
+			.preview-proposal {
+				background-image: url('../images/preview_proposal_icon.svg');
+				background-repeat: no-repeat;
+				background-position: 20px center;
+				padding-left: 50px;
+			}
+		}
+
 		.proposal-content {
 			width: 100%;
 			min-height: 700px;
 			background-color: #fff;
+			float: left;
 
-			.p-header {
-				float: left;
-				width: 100%;
-				height: 50px;
+			.p-input {
+				padding: 10px 20px 0px 20px;
 
-				.status {
+				span.desc {
+					float: left;
+					margin-left: 14px;
+					font-size: 9pt;
 					color: $color-lighter-gray;
-					font-weight: normal;
-					font-size: 10pt;
-					line-height: 50px;
-					padding: 0px 20px;
 				}
 
-				.close-proposal {
-					height: 50px;
-					width: 50px;
-					background-color: $color-blue;
-					background-image: url('../images/close_proposal_icon.svg');
-					background-position: center center;
-					background-repeat: no-repeat;
-					cursor: pointer;
-					transition: background-color .3s;
+				input {
+					float: left;
+					clear: left;
+					width: 100%;
+					font-size: 15pt;
+					padding-left: 14px;
+					padding-top: 10px;
+					padding-bottom: 10px;
+					height: auto;
+					border-bottom: 1px solid $color-light-gray;
+					transition: border-bottom .2s, color .2s;
 
-					&:hover {
-						background-color: lighten($color-blue, 5%);
+					&:hover, &:focus {
+						border-bottom: 1px solid $color-blue;
+						//color: $color-blue;
 					}
 				}
 
-				.p-header-button {
-					cursor: pointer;
-					color: $color-blue;
-					line-height: 50px;
-					font-weight: normal;
-					padding: 0px 20px;
-					transition: background-color .3s;
+				&.smaller {
+					width: 30%;
 
-					&:hover {
-						background-color: #F2F2F2;
-					}
 				}
-
-				.preview-proposal {
-					background-image: url('../images/preview_proposal_icon.svg');
-					background-repeat: no-repeat;
-					background-position: 20px center;
-					padding-left: 50px;
+				&.bigger {
+					width: 70%;
+					input {
+						margin-right: 100px;
+						padding-right: 10px;
+					}
 				}
 			}
 		}

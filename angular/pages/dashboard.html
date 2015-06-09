@@ -4,7 +4,7 @@
 	<div class="paper">
 		<div class="paper-header">
 			<div class="left-section">
-				<a href="#/?newProposal" class="white-b create-proposal">Create proposal</a>
+				<div ng-click="createProposal()" class="white-b create-proposal">Create proposal</div>
 			</div>
 			<div class="search">
 				<input class="search-input" type="text">
@@ -12,7 +12,7 @@
 		</div>
 
 		<div class="paper-content">
-			<proposal-item ng-repeat="oneUser in users.users" user="oneUser"></proposal-item>
+			<proposal-item ng-repeat="oneProposal in proposals" c-proposal="oneProposal"></proposal-item>
 		</div>
 	</div>
 </div>

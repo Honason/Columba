@@ -328,7 +328,8 @@ $paper-header-height: 50px;
 			float: left;
 			background-color: white;
 
-			a {
+			a, div {
+				cursor: pointer;
 				float: left;
 				height: $paper-header-height;
 				line-height: $paper-header-height + 2;

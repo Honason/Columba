@@ -239,7 +239,8 @@ div.header {
     .paper .paper-header div.left-section {
       float: left;
       background-color: white; }
-      .paper .paper-header div.left-section a {
+      .paper .paper-header div.left-section a, .paper .paper-header div.left-section div {
+        cursor: pointer;
         float: left;
         height: 50px;
         line-height: 52px;
@@ -247,7 +248,7 @@ div.header {
         text-decoration: none;
         padding: 0px 24px;
         font-weight: normal; }
-        .paper .paper-header div.left-section a.create-proposal {
+        .paper .paper-header div.left-section a.create-proposal, .paper .paper-header div.left-section div.create-proposal {
           background-image: url("../images/icon_new_proposal.svg");
           background-repeat: no-repeat;
           background-position: 24px center;

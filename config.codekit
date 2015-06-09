@@ -461,12 +461,34 @@
 		"outputStyle": 1,
 		"syntaxCheckerStyle": 1
 		},
+	"\/angular\/services\/min\/proposalService-min.js": {
+		"fileType": 64,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/angular\/services\/min\/proposalService-min.js",
+		"outputAbbreviatedPath": "\/angular\/services\/min\/min\/proposalService-min-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
 	"\/angular\/services\/min\/transitionService-min.js": {
 		"fileType": 64,
 		"ignore": 1,
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/angular\/services\/min\/transitionService-min.js",
 		"outputAbbreviatedPath": "\/angular\/services\/min\/min\/transitionService-min-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/angular\/services\/proposalService.js": {
+		"fileType": 64,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/angular\/services\/proposalService.js",
+		"outputAbbreviatedPath": "\/angular\/services\/min\/proposalService-min.js",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 1,
@@ -614,14 +636,20 @@
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/angular\/controllers.js",
+			"linkedFileAbbreviatedPath": "\/angular\/services\/proposalService.js",
 			"position": 3,
 			"type": 1
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/angular\/directives.js",
+			"linkedFileAbbreviatedPath": "\/angular\/controllers.js",
 			"position": 4,
+			"type": 1
+			},
+		{
+			"followForSyntaxChecking": 1,
+			"linkedFileAbbreviatedPath": "\/angular\/directives.js",
+			"position": 5,
 			"type": 1
 			}
 		]

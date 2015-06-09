@@ -12,7 +12,7 @@ columbaApp.directive('proposalItem', function(){
 		templateUrl: 'angular/directives/proposal-item.html',
 		replace: true,
 		scope: {
-			user: "="
+			cProposal: "="
 		}
 	};
 });

@@ -23,10 +23,11 @@ columbaApp.controller('loginController', ['$scope', '$location', '$log', 'authSe
 	});
 }]);
 
-columbaApp.controller('dashboardController', ['$scope', 'authService', 'userService', '$location', '$log', 'dataService', 'transitionService',
- function($scope, authService, userService, $location, $log, dataService, transitionService){
+columbaApp.controller('dashboardController', ['$scope', 'authService', 'userService', '$location', '$log', 'dataService', 'transitionService', 'proposalService',
+ function($scope, authService, userService, $location, $log, dataService, transitionService, proposalService){
 	$scope.authService = authService;
 	$scope.transitionService = transitionService;
+	$scope.createProposal = proposalService.createProposal;
 	var userName = authService.EnsureAuthenticated();
 
 	if (userName) { // ensure user is logged in
@@ -37,13 +38,17 @@ columbaApp.controller('dashboardController', ['$scope', 'authService', 'userServ
 		});
 
 		var adjustRoutes = function(inPage) {
-			if ($location.search().newProposal) {
+			if ($location.search().pId) {
 				// New proposal section
-
 				transitionService.OpenProposal();
+
 			} else {
 				// Normal Dashboard section
 				if (inPage) {transitionService.CloseProposal();}
+
+				proposalService.getProposals(function(proposals){
+					$scope.proposals = proposals;
+				});
 
 				userService.GetAllUsers(function(users){
 					$scope.users = users;

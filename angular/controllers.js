@@ -28,6 +28,7 @@ columbaApp.controller('dashboardController', ['$scope', 'authService', 'userServ
 	$scope.authService = authService;
 	$scope.transitionService = transitionService;
 	$scope.createProposal = proposalService.createProposal;
+	$scope.openProposal = proposalService.openProposal;
 	var userName = authService.EnsureAuthenticated();
 
 	if (userName) { // ensure user is logged in

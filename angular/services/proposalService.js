@@ -8,6 +8,11 @@ columbaApp.service('proposalService', ['$http', '$location', function($http, $lo
 		});
 	};
 
+	this.openProposal = function() {
+		console.log('In open proposal');
+		$location.path('/').search({'pId': '99'});
+	};
+
 	this.getProposals = function(callback) {
 		$http.post('/proposals/get-proposals').success(function(response){
 			callback(response.proposals);

@@ -272,10 +272,12 @@ div.header {
     float: left;
     width: 100%;
     padding: 24px; }
-    .paper .paper-content a.proposal-a:first-of-type .proposal-item {
+    .paper .paper-content .proposal-a {
+      cursor: pointer; }
+    .paper .paper-content .proposal-a:first-of-type .proposal-item {
       border-top-left-radius: 4px;
       border-top-right-radius: 4px; }
-    .paper .paper-content a.proposal-a:last-of-type .proposal-item {
+    .paper .paper-content .proposal-a:last-of-type .proposal-item {
       border-bottom-left-radius: 4px;
       border-bottom-right-radius: 4px; }
 

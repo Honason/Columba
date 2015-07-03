@@ -23,6 +23,42 @@ router.post('/get-proposals', User.ensureAuthenticated, function(req, res, next)
 	});
 });
 
+router.post('/get-proposal', User.ensureAuthenticated, function(req, res, next) {
+
+	var proposal = "Moje nabídka";
+
+	if (req.body.id) {
+		Proposal.findOne({'ownerId': req.decoded._id,'proposalId': req.body.id}).exec(function(err, retProposal){
+			if (err) {
+				console.log(err);
+				res.json({
+					success: false,
+					message: 'Error occured while returning proposal'
+				});
+			}
+
+			if (retProposal) {
+				res.json({
+					success: true,
+					message: 'Returning proposal',
+					proposal: retProposal
+				});
+			} else {
+				res.json({
+					success: false,
+					message: 'Error, no proposal found.'
+				});
+			}
+		});
+	} else {
+		res.json({
+			success: false,
+			message: 'Error, no id received.'
+		});
+	}
+
+});
+
 router.post('/create-proposal', User.ensureAuthenticated, function(req, res, next) {
 
 	Proposal.findOne({'ownerId': req.decoded._id}).sort('-issueDate').exec(function(err, retProposal){
@@ -30,7 +66,7 @@ router.post('/create-proposal', User.ensureAuthenticated, function(req, res, nex
 			console.log(err);
 			res.json({
 				success: false,
-				message: 'Error occured'
+				message: 'Error occured while returning last proposal'
 			});
 		}
 
@@ -61,10 +97,6 @@ router.post('/create-proposal', User.ensureAuthenticated, function(req, res, nex
 });
 
 module.exports = router;
-
-
-
-
 
 
 

@@ -12,7 +12,8 @@ columbaApp.directive('proposalItem', function(){
 		templateUrl: 'angular/directives/proposal-item.html',
 		replace: true,
 		scope: {
-			cProposal: "="
+			cProposal: "=",
+			openMethod: "&"
 		}
 	};
 });

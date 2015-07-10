@@ -5,7 +5,7 @@ var Proposal = require('../models/proposal');
 
 router.get('/', function(req, res, next) {
   res.json({
-  	message: "Ahoj"
+  	message: "Nothing here"
   });
 });
 
@@ -24,8 +24,6 @@ router.post('/get-proposals', User.ensureAuthenticated, function(req, res, next)
 });
 
 router.post('/get-proposal', User.ensureAuthenticated, function(req, res, next) {
-
-	var proposal = "Moje nabídka";
 
 	if (req.body.id) {
 		Proposal.findOne({'ownerId': req.decoded._id,'proposalId': req.body.id}).exec(function(err, retProposal){

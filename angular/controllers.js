@@ -29,6 +29,8 @@ columbaApp.controller('dashboardController', ['$scope', 'authService', 'userServ
 	$scope.transitionService = transitionService;
 	$scope.createProposal = proposalService.createProposal;
 	$scope.openProposal = proposalService.openProposal;
+	$scope.proposalService = proposalService;
+
 	var userName = authService.EnsureAuthenticated();
 
 	if (userName) { // ensure user is logged in
@@ -40,8 +42,9 @@ columbaApp.controller('dashboardController', ['$scope', 'authService', 'userServ
 
 		var adjustRoutes = function(inPage) {
 			if ($location.search().pId) {
-				// New proposal section
+				// Proposal section
 				transitionService.OpenProposal();
+				proposalService.openProposal($location.search().pId);
 
 			} else {
 				// Normal Dashboard section

@@ -1,5 +1,8 @@
 columbaApp.service('proposalService', ['$http', '$location', function($http, $location){
 
+	this.loadedProposal = {};
+	var self = this;
+
 	this.createProposal = function() {
 		$http.post('proposals/create-proposal').success(function(response){
 			if (response.success) {
@@ -8,9 +11,14 @@ columbaApp.service('proposalService', ['$http', '$location', function($http, $lo
 		});
 	};
 
-	this.openProposal = function() {
-		console.log('In open proposal');
-		$location.path('/').search({'pId': '99'});
+	this.openProposal = function(id) {
+		$http.post('proposals/get-proposal', {id: id}).success(function(response){
+			if (response.success) {
+				self.loadedProposal = response.proposal;
+			}
+		});
+
+		$location.path('/').search({'pId': id});
 	};
 
 	this.getProposals = function(callback) {

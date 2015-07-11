@@ -4,6 +4,7 @@ $color-dark-gray: #4F4F4F;
 $color-dark-blue: #08396A;
 $color-lighter-dark-blue: #4B6B8B;
 $color-blue: #1072D4;
+$color-blue-light: #F4FAFF;
 
 html { box-sizing: border-box; }
 *, *:before, *:after { box-sizing: inherit; }
@@ -13,6 +14,13 @@ body {
 	font-family: 'Roboto', sans-serif;
 	font-weight: lighter;
 	color: $color-dark-gray;
+}
+
+button {
+	border: none;
+	background: none;
+	margin: 0px;
+	padding: 0px;
 }
 
 /* Headings */
@@ -33,6 +41,9 @@ h1 {
 }
 .pull-left {
 	float: left;
+}
+.hidden {
+	display: none;
 }
 
 /* Centering */
@@ -464,6 +475,8 @@ $paper-header-height: 50px;
 
 			.p-input {
 				padding: 10px 20px 0px 20px;
+				height: 70px;
+				position: relative;
 
 				span.desc {
 					float: left;
@@ -486,7 +499,37 @@ $paper-header-height: 50px;
 
 					&:hover, &:focus {
 						border-bottom: 1px solid $color-blue;
-						//color: $color-blue;
+					}
+				}
+
+				div.inputtext {
+					position: relative;
+					float: left;
+					clear: left;
+					width: 100%;
+					padding-left: 14px;
+					padding-top: 10px;
+					padding-bottom: 10px;
+					height: auto;
+					border-bottom: 1px solid $color-light-gray;
+					transition: border-bottom .2s, color .2s;
+
+					span.text {
+						font-size: 15pt;
+					}
+
+					button.text-button {
+						float: right;
+						font-weight: normal;
+						font-size: 10pt;
+						margin-right: 10px;
+						color: $color-blue;
+						padding: 4px 6px;
+						border-radius: 2px;
+						&:hover {
+							color: $color-blue;
+							background-color: lighten($color-blue, 50%);
+						}
 					}
 				}
 
@@ -499,6 +542,53 @@ $paper-header-height: 50px;
 					input {
 						margin-right: 100px;
 						padding-right: 10px;
+					}
+				}
+
+				div.paper-down {
+					position: absolute;
+					display: none;
+					margin-left: -14px;
+					margin-top: 10px;
+					z-index: 10;
+					width: 100%;
+					min-height: 100px;
+					background-color: $color-blue-light;
+					border: 1px solid darken($color-blue-light, 6%);
+					padding: 10px 0px 0px 14px; 
+
+					div.input-group {
+						float: left;
+						width: 50%;
+						padding-right: 14px;
+						input {
+							font-size: 12pt;
+						}
+
+						&.big {
+							width: 100%;
+							input {
+								font-size: 15pt;
+								padding-top: 10px;
+								padding-bottom: 10px;
+							}
+						}
+					}
+
+					span.desc {
+						margin-left: 0px;
+					}
+
+					input {
+						background-color: transparent;
+						box-sizing: border-box;
+						border-bottom: 1px solid darken($color-blue-light, 6%);
+						padding: 6px 0px;
+						margin-bottom: 20px;
+						margin-right: 0px;
+						&:hover, &:focus {
+							border-bottom: 1px solid $color-blue;
+						}
 					}
 				}
 			}

@@ -98,4 +98,12 @@ columbaApp.service('transitionService', ['$log', '$timeout', '$location', 'dataS
 		TweenMax.fromTo(".proposal-wrapper", 0.6, {backgroundColor:"rgba(8, 57, 106, 0.8)"}, {backgroundColor:"rgba(8, 57, 106, 0)"});
 	};
 
+	this.OpenDetail = function(id) {
+		var paperDown = $('#'+id + ' .paper-down');
+		TweenMax.to(paperDown, 0, {css:{'display': 'block'}});
+
+		$('#'+id + ' .text-button.trigger').css('display', 'none');
+		$('#'+id + ' .text-button.hidden').css('display', 'block');
+	};
+
 }]);

@@ -15,7 +15,44 @@
 				</div>
 				<div class="pull-left p-input bigger" id="supplier">
 					<span class="desc">Supplier (you)</span>
-					<input type="text" value="Nocturn Bits">
+					<div class="inputtext">
+						<span class="text">Nocturn Bits</span> 
+						<button class="text-button trigger" ng-click="transitionService.OpenDetail('supplier')">Edit</button>
+						<button class="text-button hidden" ng-click="">Save</button>
+						<button class="text-button cancel hidden" ng-click="">Cancel</button>
+
+						<div class="paper-down">
+							<div class="input-group big">
+								<span class="desc">Supplier Name</span>
+								<input type="text" value="Nocturn Bits">
+							</div>
+							<div class="input-group">
+								<span class="desc">Street, house number</span>
+								<input type="text" value="2515 Briercliff Road">
+							</div>
+							<div class="input-group">
+								<span class="desc">City</span>
+								<input type="text" value="Rego Park Queens">
+							</div>
+							<div class="input-group">
+								<span class="desc">Zip Code</span>
+								<input type="text" value="11734">
+							</div>
+							<div class="input-group">
+								<span class="desc">Country</span>
+								<input type="text" value="United States">
+							</div>
+							<div class="input-group">
+								<span class="desc">VAT Number</span>
+								<input type="text" value="US12345678">
+							</div>
+							<div class="input-group">
+								<span class="desc">Phone Number</span>
+								<input type="text" value="718-637-8624">
+							</div>
+						</div>
+					</div>
+
 				</div>
 				<div class="pull-left p-input smaller" id="issueDate">
 					<span class="desc">Issue date</span>

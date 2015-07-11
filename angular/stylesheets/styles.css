@@ -10,6 +10,12 @@ body {
   font-weight: lighter;
   color: #4F4F4F; }
 
+button {
+  border: none;
+  background: none;
+  margin: 0px;
+  padding: 0px; }
+
 /* Headings */
 h1 {
   font-weight: lighter;
@@ -27,6 +33,9 @@ h1 {
 
 .pull-left {
   float: left; }
+
+.hidden {
+  display: none; }
 
 /* Centering */
 .vertical-center-wrapper {
@@ -339,7 +348,9 @@ div.header {
       background-color: #fff;
       float: left; }
       .proposal-wrapper .proposal-paper .proposal-content .p-input {
-        padding: 10px 20px 0px 20px; }
+        padding: 10px 20px 0px 20px;
+        height: 70px;
+        position: relative; }
         .proposal-wrapper .proposal-paper .proposal-content .p-input span.desc {
           float: left;
           margin-left: 14px;
@@ -358,6 +369,30 @@ div.header {
           transition: border-bottom .2s, color .2s; }
           .proposal-wrapper .proposal-paper .proposal-content .p-input input:hover, .proposal-wrapper .proposal-paper .proposal-content .p-input input:focus {
             border-bottom: 1px solid #1072D4; }
+        .proposal-wrapper .proposal-paper .proposal-content .p-input div.inputtext {
+          position: relative;
+          float: left;
+          clear: left;
+          width: 100%;
+          padding-left: 14px;
+          padding-top: 10px;
+          padding-bottom: 10px;
+          height: auto;
+          border-bottom: 1px solid #EEEEEE;
+          transition: border-bottom .2s, color .2s; }
+          .proposal-wrapper .proposal-paper .proposal-content .p-input div.inputtext span.text {
+            font-size: 15pt; }
+          .proposal-wrapper .proposal-paper .proposal-content .p-input div.inputtext button.text-button {
+            float: right;
+            font-weight: normal;
+            font-size: 10pt;
+            margin-right: 10px;
+            color: #1072D4;
+            padding: 4px 6px;
+            border-radius: 2px; }
+            .proposal-wrapper .proposal-paper .proposal-content .p-input div.inputtext button.text-button:hover {
+              color: #1072D4;
+              background-color: #e6f2fd; }
         .proposal-wrapper .proposal-paper .proposal-content .p-input.smaller {
           width: 30%; }
         .proposal-wrapper .proposal-paper .proposal-content .p-input.bigger {
@@ -365,6 +400,40 @@ div.header {
           .proposal-wrapper .proposal-paper .proposal-content .p-input.bigger input {
             margin-right: 100px;
             padding-right: 10px; }
+        .proposal-wrapper .proposal-paper .proposal-content .p-input div.paper-down {
+          position: absolute;
+          display: none;
+          margin-left: -14px;
+          margin-top: 10px;
+          z-index: 10;
+          width: 100%;
+          min-height: 100px;
+          background-color: #F4FAFF;
+          border: 1px solid #d5ecff;
+          padding: 10px 0px 0px 14px; }
+          .proposal-wrapper .proposal-paper .proposal-content .p-input div.paper-down div.input-group {
+            float: left;
+            width: 50%;
+            padding-right: 14px; }
+            .proposal-wrapper .proposal-paper .proposal-content .p-input div.paper-down div.input-group input {
+              font-size: 12pt; }
+            .proposal-wrapper .proposal-paper .proposal-content .p-input div.paper-down div.input-group.big {
+              width: 100%; }
+              .proposal-wrapper .proposal-paper .proposal-content .p-input div.paper-down div.input-group.big input {
+                font-size: 15pt;
+                padding-top: 10px;
+                padding-bottom: 10px; }
+          .proposal-wrapper .proposal-paper .proposal-content .p-input div.paper-down span.desc {
+            margin-left: 0px; }
+          .proposal-wrapper .proposal-paper .proposal-content .p-input div.paper-down input {
+            background-color: transparent;
+            box-sizing: border-box;
+            border-bottom: 1px solid #d5ecff;
+            padding: 6px 0px;
+            margin-bottom: 20px;
+            margin-right: 0px; }
+            .proposal-wrapper .proposal-paper .proposal-content .p-input div.paper-down input:hover, .proposal-wrapper .proposal-paper .proposal-content .p-input div.paper-down input:focus {
+              border-bottom: 1px solid #1072D4; }
 
 /* Proposal item */
 .proposal-item {

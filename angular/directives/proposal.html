@@ -18,8 +18,8 @@
 					<div class="inputtext">
 						<span class="text">Nocturn Bits</span> 
 						<button class="text-button trigger" ng-click="transitionService.OpenDetail('supplier')">Edit</button>
-						<button class="text-button hidden" ng-click="">Save</button>
-						<button class="text-button cancel hidden" ng-click="">Cancel</button>
+						<button class="text-button hidden" ng-click="transitionService.CloseDetail('supplier', true)">Save</button>
+						<button class="text-button cancel hidden" ng-click="transitionService.CloseDetail('supplier', false)">Cancel</button>
 
 						<div class="paper-down">
 							<div class="input-group big">

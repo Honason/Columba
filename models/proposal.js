@@ -10,12 +10,21 @@ var ProposalSchema = mongoose.Schema({
 	proposalId:{
 		type: String
 	},
+	originalSupplier:{
+		type: mongoose.Schema.Types.ObjectId,
+		ref: 'Contact'
+	},
 	supplier:{
 		type: mongoose.Schema.Types.ObjectId,
-		ref: 'Supplier'
+		ref: 'Contact'
 	},
-	customerId:{
-		type: String
+	originalCustomer:{
+		type: mongoose.Schema.Types.ObjectId,
+		ref: 'Contact'
+	},
+	customer:{
+		type: mongoose.Schema.Types.ObjectId,
+		ref: 'Contact'
 	},
 	issueDate:{
 		type: Date, 

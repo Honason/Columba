@@ -106,4 +106,12 @@ columbaApp.service('transitionService', ['$log', '$timeout', '$location', 'dataS
 		$('#'+id + ' .text-button.hidden').css('display', 'block');
 	};
 
+	this.CloseDetail = function(id, save) {
+		var paperDown = $('#'+id + ' .paper-down');
+		TweenMax.to(paperDown, 0, {css:{'display': 'none'}});
+
+		$('#'+id + ' .text-button.trigger').css('display', 'block');
+		$('#'+id + ' .text-button.hidden').css('display', 'none');
+	};
+
 }]);

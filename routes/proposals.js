@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var User = require('../models/user');
 var Proposal = require('../models/proposal');
+var Contact = require('../models/contact');
 
 router.get('/', function(req, res, next) {
   res.json({
@@ -36,11 +37,22 @@ router.post('/get-proposal', User.ensureAuthenticated, function(req, res, next) 
 			}
 
 			if (retProposal) {
-				res.json({
-					success: true,
-					message: 'Returning proposal',
-					proposal: retProposal
-				});
+
+				if (retProposal.supplier) {
+					Contact.findOne({'_id': retProposal.supplier}).exec(function(err, retContact){
+						if (err) {console.log(err)};
+						console.log(retContact);
+						if (retContact) {
+							res.json({
+								success: true,
+								message: 'Returning proposal',
+								proposal: retProposal,
+								supplier: retContact
+							});
+						};
+					});
+				}
+
 			} else {
 				res.json({
 					success: false,
@@ -59,6 +71,7 @@ router.post('/get-proposal', User.ensureAuthenticated, function(req, res, next) 
 
 router.post('/create-proposal', User.ensureAuthenticated, function(req, res, next) {
 
+	// Getting next ID
 	Proposal.findOne({'ownerId': req.decoded._id}).sort('-issueDate').exec(function(err, retProposal){
 		if (err) {
 			console.log(err);
@@ -67,15 +80,48 @@ router.post('/create-proposal', User.ensureAuthenticated, function(req, res, nex
 				message: 'Error occured while returning last proposal'
 			});
 		}
-
 		var currentId = "0";
 		if (retProposal) {currentId = retProposal.proposalId}; // If there is any proposal, get it's ID
-
 		var nextId = countNextId(currentId); // get next ID
+
+		// Setting supplier
+		var newSupplier = new Contact ({
+			ownerId: req.decoded._id,
+			type: 'supplier',
+			name: '',
+			address: '',
+			city: '',
+			zipCode: '',
+			country: '',
+			vatNumber: '',
+			phone: ''
+		});
+
+		User.findOne({'_id': req.decoded._id}).exec(function(err, myUser){
+			if (err) {console.log(err)};
+
+			if (myUser) {
+				if (myUser.lastUsedSupplier) {
+					console.log('There is last used supplier');
+				} else {
+					console.log('There is no last used supplier, do nothing.');
+				}
+			}
+		});
+
+		// Saving new supplier
+		Contact.createContact(newSupplier, function(err, contact){
+			if (err) throw err;
+			if (contact) {
+				console.log('Supplier created');
+				console.log(contact);
+			}
+		});
 
 		var newProposal = new Proposal ({
 			ownerId: req.decoded._id,
 			proposalId: nextId,
+			supplier: newSupplier._id,
 			name: ''
 		});
 

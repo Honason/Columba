@@ -14,6 +14,9 @@ var UserSchema = mongoose.Schema({
 	},
 	password:{
 		type: String, required: true, bcrypt:true
+	},
+	lastUsedSupplier:{
+		type: String
 	}
 });
 

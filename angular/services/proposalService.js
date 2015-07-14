@@ -14,7 +14,7 @@ columbaApp.service('proposalService', ['$http', '$location', function($http, $lo
 	this.openProposal = function(id) {
 		$http.post('proposals/get-proposal', {id: id}).success(function(response){
 			if (response.success) {
-				self.loadedProposal = response.proposal;
+				self.loadedProposal = response;
 			}
 		});
 
@@ -25,6 +25,27 @@ columbaApp.service('proposalService', ['$http', '$location', function($http, $lo
 		$http.post('/proposals/get-proposals').success(function(response){
 			callback(response.proposals);
 		});
+	};
+
+	this.saveSection = function(section) {
+		if (section === 'supplier') {
+			var supplier = self.loadedProposal.supplier;
+
+			$http.post('proposals/update-proposal-section', {
+				section: 'supplier',
+				id: supplier._id, 
+				name: supplier.name, 
+				address: supplier.address,
+				city: supplier.city,
+				zipCode: supplier.zipCode,
+				country: supplier.country,
+				vatNumber: supplier.vatNumber,
+				phone: supplier.phone
+			}).success(function(response){
+				
+			});
+
+		}
 	};
 
 }]);

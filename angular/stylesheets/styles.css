@@ -293,10 +293,6 @@ div.header {
 /* Proposal Page */
 .proposal-wrapper {
   position: absolute;
-  top: 0px;
-  background-color: rgba(8, 57, 106, 0.8);
-  width: 100%;
-  height: 100%;
   display: none; }
   .proposal-wrapper .proposal-paper {
     position: fixed;
@@ -390,6 +386,11 @@ div.header {
             color: #1072D4;
             padding: 4px 6px;
             border-radius: 2px; }
+            .proposal-wrapper .proposal-paper .proposal-content .p-input div.inputtext button.text-button.cancel {
+              color: #959595; }
+              .proposal-wrapper .proposal-paper .proposal-content .p-input div.inputtext button.text-button.cancel:hover {
+                color: #959595;
+                background-color: #f3f3f3; }
             .proposal-wrapper .proposal-paper .proposal-content .p-input div.inputtext button.text-button:hover {
               color: #1072D4;
               background-color: #e6f2fd; }
@@ -404,7 +405,7 @@ div.header {
           position: absolute;
           display: none;
           margin-left: -14px;
-          margin-top: 10px;
+          top: 43px;
           z-index: 10;
           width: 100%;
           min-height: 100px;

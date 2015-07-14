@@ -87,7 +87,7 @@ columbaApp.service('transitionService', ['$log', '$timeout', '$location', 'dataS
 		} else {
 			TweenMax.to(".proposal-paper", 0, {y: window.innerHeight});
 			TweenMax.to(".proposal-wrapper", 0, {css:{'display': 'block'}});
-			TweenMax.fromTo(".proposal-wrapper", 0.6, {backgroundColor:"rgba(8, 57, 106, 0)"}, {backgroundColor:"rgba(8, 57, 106, 0.8)"});
+			//TweenMax.fromTo(".proposal-wrapper", 0.6, {backgroundColor:"rgba(8, 57, 106, 0)"}, {backgroundColor:"rgba(8, 57, 106, 0.8)"});
 			TweenMax.to(".proposal-paper", 0.6, {y: 0, ease:Power3.easeOut});
 		}
 	};
@@ -95,7 +95,7 @@ columbaApp.service('transitionService', ['$log', '$timeout', '$location', 'dataS
 	this.CloseProposal = function() {
 		TweenMax.to(".proposal-paper", 0.6, {y: window.innerHeight, ease:Power3.easeIn});
 		TweenMax.to(".proposal-wrapper", 0, {css:{'display': 'none'}, delay: 1});
-		TweenMax.fromTo(".proposal-wrapper", 0.6, {backgroundColor:"rgba(8, 57, 106, 0.8)"}, {backgroundColor:"rgba(8, 57, 106, 0)"});
+		//TweenMax.fromTo(".proposal-wrapper", 0.6, {backgroundColor:"rgba(8, 57, 106, 0.8)"}, {backgroundColor:"rgba(8, 57, 106, 0)"});
 	};
 
 	this.OpenDetail = function(id) {
@@ -106,7 +106,7 @@ columbaApp.service('transitionService', ['$log', '$timeout', '$location', 'dataS
 		$('#'+id + ' .text-button.hidden').css('display', 'block');
 	};
 
-	this.CloseDetail = function(id, save) {
+	this.CloseDetail = function(id) {
 		var paperDown = $('#'+id + ' .paper-down');
 		TweenMax.to(paperDown, 0, {css:{'display': 'none'}});
 

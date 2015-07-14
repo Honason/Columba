@@ -403,10 +403,10 @@ $paper-header-height: 50px;
 /* Proposal Page */
 .proposal-wrapper {
 	position: absolute;
-	top: 0px;
-	background-color: rgba(8, 57, 106, 0.8);
-	width: 100%;
-	height: 100%;
+	//top: 0px;
+	//background-color: rgba(8, 57, 106, 0.8);
+	//width: 100%;
+	//height: 100%;
 	display: none;
 	.proposal-paper {
 		position: fixed;
@@ -526,6 +526,15 @@ $paper-header-height: 50px;
 						color: $color-blue;
 						padding: 4px 6px;
 						border-radius: 2px;
+
+						&.cancel {
+							color: $color-lighter-gray;
+							&:hover {
+								color: $color-lighter-gray;
+								background-color: lighten($color-lighter-gray, 37%);
+							}
+						}
+
 						&:hover {
 							color: $color-blue;
 							background-color: lighten($color-blue, 50%);
@@ -549,7 +558,7 @@ $paper-header-height: 50px;
 					position: absolute;
 					display: none;
 					margin-left: -14px;
-					margin-top: 10px;
+					top: 43px;
 					z-index: 10;
 					width: 100%;
 					min-height: 100px;

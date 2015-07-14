@@ -62,6 +62,17 @@ columbaApp.controller('dashboardController', ['$scope', 'authService', 'userServ
 
 		adjustRoutes(false); // Check whether user wants something else than Dashboard
 
+		$scope.closeEdit = function(section, save) {
+			transitionService.CloseDetail(section);
+
+			if (save) {
+				proposalService.saveSection(section);
+			}
+		};
+
 		transitionService.CheckPreviousState();
 	}
 }]);
+
+
+

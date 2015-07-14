@@ -140,6 +140,38 @@ router.post('/create-proposal', User.ensureAuthenticated, function(req, res, nex
 	});
 });
 
+router.post('/update-proposal-section', User.ensureAuthenticated, function(req, res, next) {
+
+	var section = req.body.section;
+
+	if (section === "supplier") {
+		Contact.update({ownerId: req.decoded._id, _id: req.body.id},
+			{
+				name: req.body.name,
+				address: req.body.address,
+				city: req.body.city,
+				zipCode: req.body.zipCode,
+				country: req.body.country,
+				vatNumber: req.body.vatNumber,
+				phone: req.body.phone
+			},
+			function(err, response){
+
+				Proposal.update({ownerId: req.decoded._id, supplier: req.body.id}, {supplierName: req.body.name}, function(err, resp){
+					console.log("Supplier name updated");
+
+					res.json({
+						success: true,
+						message: 'Proposal updated',
+						supplierRes: response,
+						ProposalRes: resp
+					});
+				});
+			});
+	}
+
+});
+
 module.exports = router;
 
 

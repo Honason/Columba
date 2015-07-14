@@ -11,44 +11,44 @@
 			<form action="">
 				<div class="pull-left p-input smaller" id="offerId">
 					<span class="desc">Offer ID</span>
-					<input type="text" value="{{ proposalService.loadedProposal.proposalId }}">
+					<input type="text" value="{{ proposalService.loadedProposal.proposal.proposalId }}">
 				</div>
 				<div class="pull-left p-input bigger" id="supplier">
 					<span class="desc">Supplier (you)</span>
 					<div class="inputtext">
-						<span class="text">Nocturn Bits</span> 
-						<button class="text-button trigger" ng-click="transitionService.OpenDetail('supplier')">Edit</button>
-						<button class="text-button hidden" ng-click="transitionService.CloseDetail('supplier', true)">Save</button>
-						<button class="text-button cancel hidden" ng-click="transitionService.CloseDetail('supplier', false)">Cancel</button>
+						<span class="text" ng-bind="proposalService.loadedProposal.supplier.name"></span> 
+						<button class="text-button trigger" type='button' ng-click="transitionService.OpenDetail('supplier')">Edit</button>
+						<button class="text-button hidden" type='button' ng-click="closeEdit('supplier', true)">Save</button>
+						<button class="text-button cancel hidden" type='button' ng-click="closeEdit('supplier', false)">Cancel</button>
 
 						<div class="paper-down">
 							<div class="input-group big">
 								<span class="desc">Supplier Name</span>
-								<input type="text" value="Nocturn Bits">
+								<input type="text" ng-model="proposalService.loadedProposal.supplier.name">
 							</div>
 							<div class="input-group">
 								<span class="desc">Street, house number</span>
-								<input type="text" value="2515 Briercliff Road">
+								<input type="text" ng-model="proposalService.loadedProposal.supplier.address">
 							</div>
 							<div class="input-group">
 								<span class="desc">City</span>
-								<input type="text" value="Rego Park Queens">
+								<input type="text" ng-model="proposalService.loadedProposal.supplier.city">
 							</div>
 							<div class="input-group">
 								<span class="desc">Zip Code</span>
-								<input type="text" value="11734">
+								<input type="text" ng-model="proposalService.loadedProposal.supplier.zipCode">
 							</div>
 							<div class="input-group">
 								<span class="desc">Country</span>
-								<input type="text" value="United States">
+								<input type="text" ng-model="proposalService.loadedProposal.supplier.country">
 							</div>
 							<div class="input-group">
 								<span class="desc">VAT Number</span>
-								<input type="text" value="US12345678">
+								<input type="text" ng-model="proposalService.loadedProposal.supplier.vatNumber">
 							</div>
 							<div class="input-group">
 								<span class="desc">Phone Number</span>
-								<input type="text" value="718-637-8624">
+								<input type="text" ng-model="proposalService.loadedProposal.supplier.phone">
 							</div>
 						</div>
 					</div>

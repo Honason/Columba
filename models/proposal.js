@@ -18,6 +18,9 @@ var ProposalSchema = mongoose.Schema({
 		type: mongoose.Schema.Types.ObjectId,
 		ref: 'Contact'
 	},
+	supplierName:{
+		type: String
+	},
 	originalCustomer:{
 		type: mongoose.Schema.Types.ObjectId,
 		ref: 'Contact'

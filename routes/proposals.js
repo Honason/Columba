@@ -140,6 +140,37 @@ router.post('/create-proposal', User.ensureAuthenticated, function(req, res, nex
 	});
 });
 
+router.post('/delete-proposal', User.ensureAuthenticated, function(req, res, next) {
+	if (req.body.id) {
+		Proposal.findOne({ownerId: req.decoded._id, _id: req.body.id}).exec(function(err, retProposal){
+			if (err) {console.log(err)};
+			if (retProposal) {
+				Contact.findByIdAndRemove(retProposal.supplier).exec(function(err, response){
+					if (err) {console.log(err)};
+					if (!response) {console.log('Supplier not found.')};
+				});
+
+				retProposal.remove();
+
+				res.json({
+					success: true,
+					proposal: retProposal
+				});
+			} else {
+				res.json({
+					success: false,
+					message: 'Proposal not found'
+				}); 
+			}
+		});
+	} else {
+		res.json({
+			success: false,
+			message: 'Error, there is no ID received'
+		});
+	}
+});
+
 router.post('/update-proposal-section', User.ensureAuthenticated, function(req, res, next) {
 
 	var section = req.body.section;

@@ -338,6 +338,15 @@ div.header {
         background-repeat: no-repeat;
         background-position: 20px center;
         padding-left: 50px; }
+      .proposal-wrapper .proposal-paper .p-header .delete-proposal {
+        background-image: url("../images/icon_delete_gray.svg");
+        background-repeat: no-repeat;
+        background-position: center center;
+        height: 100%;
+        padding-left: 30px;
+        transition: background-image .2s; }
+        .proposal-wrapper .proposal-paper .p-header .delete-proposal:hover {
+          background-image: url("../images/icon_delete_blue.svg"); }
     .proposal-wrapper .proposal-paper .proposal-content {
       width: 100%;
       min-height: 700px;

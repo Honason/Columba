@@ -3,8 +3,9 @@
 		<div class="p-header">
 			<div class="pull-left status">Status is here</div>
 
-			<a class="pull-right close-proposal" href="#/"></a>
+			<a class="pull-right close-proposal" href="#/" ng-click="transitionService.CloseProposal()"></a>
 			<div class="pull-right p-header-button preview-proposal">Preview proposal</div>
+			<div class="pull-right p-header-button delete-proposal" ng-click="deleteProposal()"></div>
 		</div>
 
 		<div class="proposal-content">

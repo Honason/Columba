@@ -465,6 +465,18 @@ $paper-header-height: 50px;
 				background-position: 20px center;
 				padding-left: 50px;
 			}
+
+			.delete-proposal {
+				background-image: url('../images/icon_delete_gray.svg');
+				background-repeat: no-repeat;
+				background-position: center center;
+				height: 100%;
+				padding-left: 30px;
+				transition: background-image .2s;
+				&:hover {
+					background-image: url('../images/icon_delete_blue.svg');
+				}
+			}
 		}
 
 		.proposal-content {

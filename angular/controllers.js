@@ -48,7 +48,6 @@ columbaApp.controller('dashboardController', ['$scope', 'authService', 'userServ
 
 			} else {
 				// Normal Dashboard section
-				if (inPage) {transitionService.CloseProposal();}
 
 				proposalService.getProposals(function(proposals){
 					$scope.proposals = proposals;
@@ -64,10 +63,16 @@ columbaApp.controller('dashboardController', ['$scope', 'authService', 'userServ
 
 		$scope.closeEdit = function(section, save) {
 			transitionService.CloseDetail(section);
-
 			if (save) {
 				proposalService.saveSection(section);
 			}
+		};
+
+		$scope.deleteProposal = function() {
+			proposalService.deleteProposal(function(){
+				$location.url('/#');
+				transitionService.DeleteProposal();
+			});
 		};
 
 		transitionService.CheckPreviousState();

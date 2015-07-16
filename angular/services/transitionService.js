@@ -80,21 +80,26 @@ columbaApp.service('transitionService', ['$log', '$timeout', '$location', 'dataS
 		if (dataService.lastPath === "empty" && dataService.currentPath !== "") {
 			self.animPrepare = "proposal-direct";
 			angular.element(document).ready(function () {
-				$timeout(function(){
+				$timeout(function(){ 
 					TweenMax.to(".proposal-wrapper", 0, {css:{'display': 'block'}});
 				}, 200);
 			});
 		} else {
-			TweenMax.to(".proposal-paper", 0, {y: window.innerHeight});
+			TweenMax.to(".proposal-paper", 0, {y: window.innerHeight, opacity: 1, scale: 1});
 			TweenMax.to(".proposal-wrapper", 0, {css:{'display': 'block'}});
 			//TweenMax.fromTo(".proposal-wrapper", 0.6, {backgroundColor:"rgba(8, 57, 106, 0)"}, {backgroundColor:"rgba(8, 57, 106, 0.8)"});
-			TweenMax.to(".proposal-paper", 0.6, {y: 0, ease:Power3.easeOut});
+			TweenMax.to(".proposal-paper", 0.4, {y: 0, ease:Power3.easeOut});
 		}
 	};
 
+	this.DeleteProposal = function() {
+		TweenMax.to(".proposal-paper", 0.4, {y: 30, opacity: 0, scale: 0.8, ease:Power3.easeIn});
+		TweenMax.to(".proposal-wrapper", 0, {css:{'display': 'none'}, delay: 0.5});
+	};
+
 	this.CloseProposal = function() {
-		TweenMax.to(".proposal-paper", 0.6, {y: window.innerHeight, ease:Power3.easeIn});
-		TweenMax.to(".proposal-wrapper", 0, {css:{'display': 'none'}, delay: 1});
+		TweenMax.to(".proposal-paper", 0.4, {y: window.innerHeight, ease:Power3.easeIn});
+		TweenMax.to(".proposal-wrapper", 0, {css:{'display': 'none'}, delay: 0.5});
 		//TweenMax.fromTo(".proposal-wrapper", 0.6, {backgroundColor:"rgba(8, 57, 106, 0.8)"}, {backgroundColor:"rgba(8, 57, 106, 0)"});
 	};
 

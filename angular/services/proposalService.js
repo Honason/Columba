@@ -27,6 +27,13 @@ columbaApp.service('proposalService', ['$http', '$location', function($http, $lo
 		});
 	};
 
+	this.deleteProposal = function(callback) {
+		$http.post('/proposals/delete-proposal', {id: self.loadedProposal.proposal._id}).success(function(response){
+			console.log(response);
+			callback();
+		});
+	};
+
 	this.saveSection = function(section) {
 		if (section === 'supplier') {
 			var supplier = self.loadedProposal.supplier;

@@ -17,8 +17,10 @@
 				<div class="pull-left p-input bigger" id="supplier">
 					<span class="desc">Supplier (you)</span>
 					<div class="inputtext">
-						<span class="text" ng-bind="proposalService.loadedProposal.supplier.name"></span> 
-						<button class="text-button trigger" type='button' ng-click="transitionService.OpenDetail('supplier')">Edit</button>
+						<span class="text" ng-bind="proposalService.loadedProposal.supplier.name"></span>
+						<div class="clickarea trigger" ng-click="transitionService.OpenDetail('supplier')">
+							<button class="text-button" type='button'>Edit</button>
+						</div>
 						<button class="text-button hidden" type='button' ng-click="closeEdit('supplier', true)">Save</button>
 						<button class="text-button cancel hidden" type='button' ng-click="closeEdit('supplier', false)">Cancel</button>
 

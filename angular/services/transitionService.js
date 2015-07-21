@@ -101,22 +101,30 @@ columbaApp.service('transitionService', ['$log', '$timeout', '$location', 'dataS
 		TweenMax.to(".proposal-paper", 0.4, {y: window.innerHeight, ease:Power3.easeIn});
 		TweenMax.to(".proposal-wrapper", 0, {css:{'display': 'none'}, delay: 0.5});
 		//TweenMax.fromTo(".proposal-wrapper", 0.6, {backgroundColor:"rgba(8, 57, 106, 0.8)"}, {backgroundColor:"rgba(8, 57, 106, 0)"});
+
+		$timeout(function(){
+			self.CloseDetail();
+		}, 500);
 	};
 
 	this.OpenDetail = function(id) {
 		var paperDown = $('#'+id + ' .paper-down');
 		TweenMax.to(paperDown, 0, {css:{'display': 'block'}});
 
-		$('#'+id + ' .text-button.trigger').css('display', 'none');
+		$('#'+id + ' div.trigger').css('display', 'none');
 		$('#'+id + ' .text-button.hidden').css('display', 'block');
 	};
 
 	this.CloseDetail = function(id) {
-		var paperDown = $('#'+id + ' .paper-down');
+		var myId = "";
+		if (id) {
+			myId = '#'+id;
+		}
+		var paperDown = $(myId + ' .paper-down');
 		TweenMax.to(paperDown, 0, {css:{'display': 'none'}});
 
-		$('#'+id + ' .text-button.trigger').css('display', 'block');
-		$('#'+id + ' .text-button.hidden').css('display', 'none');
+		$(myId + ' div.trigger').css('display', 'block');
+		$(myId + ' .text-button.hidden').css('display', 'none');
 	};
 
 }]);

@@ -65,6 +65,8 @@ columbaApp.controller('dashboardController', ['$scope', 'authService', 'userServ
 			transitionService.CloseDetail(section);
 			if (save) {
 				proposalService.saveSection(section);
+			} else {
+				proposalService.cancelSection(section);
 			}
 		};
 

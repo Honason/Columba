@@ -1,24 +1,30 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg width="59px" height="60px" viewBox="0 0 59 60" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+<svg width="299px" height="305px" viewBox="0 0 299 305" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
     <!-- Generator: Sketch 3.3 (11970) - http://www.bohemiancoding.com/sketch -->
-    <title>Columba logo</title>
+    <title>Logo</title>
     <desc>Created with Sketch.</desc>
-    <defs></defs>
+    <defs>
+        <path d="M129.931997,0 L130,0 L130,0 C130,48.1183531 103.857089,90.1307023 65,112.608315 L65,112.608315 C26.1429109,90.1307023 0,48.1183531 0,0 L0.0680025679,0 C1.6355805,34.5059253 30.1069976,62 65,62 C99.8930024,62 128.364419,34.5059253 129.931996,3.13416482e-05 Z" id="path-1"></path>
+    </defs>
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
-        <g id="Login" sketch:type="MSArtboardGroup" transform="translate(-480.000000, -47.000000)">
-            <g id="Columba-logo" sketch:type="MSLayerGroup" transform="translate(480.000000, 47.000000)">
-                <path d="M13.876013,13.3972638 C13.8214768,9.74523212 10.8731679,6.80168776 7.24412896,6.80168776 C3.61509005,6.80168776 0.666781147,9.74523212 0.612244898,13.3972638 L13.876013,13.3972638 Z" id="Oval-7" fill="#FFFFFF" sketch:type="MSShapeGroup"></path>
-                <path d="M58.5714286,13.3972638 C58.5714286,28.1954727 46.6932689,40.1917913 32.0408163,40.1917913 C17.3883638,40.1917913 5.51020408,28.1954727 5.51020408,13.3972638 L58.5714286,13.3972638 Z" id="Oval-5" fill="#1072D4" sketch:type="MSShapeGroup"></path>
-                <path d="M45.3061224,36.6071606 C53.2361406,31.9742606 58.5714286,23.3150218 58.5714286,13.3972638 L58.5714286,13.3972638 L32.0408163,13.3972638 C32.0408163,23.3150218 37.3761043,31.9742606 45.3061224,36.6071606 L45.3061224,36.6071606 Z" id="Oval-10" opacity="0.495627332" fill="#FFFFFF" sketch:type="MSShapeGroup"></path>
-                <ellipse id="Oval-6" fill="#1072D4" sketch:type="MSShapeGroup" cx="18.7755102" cy="13.3972638" rx="13.2653061" ry="13.3972638"></ellipse>
-                <g id="eye-3" transform="translate(11.020408, 6.801688)" sketch:type="MSShapeGroup">
-                    <ellipse id="Oval-3" fill="#FFFFFF" cx="3.26530612" cy="3.29778801" rx="3.26530612" ry="3.29778801"></ellipse>
-                    <ellipse id="Oval-4" fill="#08396A" cx="3.26530612" cy="3.29778801" rx="1.95918367" ry="1.9786728"></ellipse>
-                </g>
-                <text id="Columba-2" sketch:type="MSTextLayer" font-family="Lato" font-size="14.6938776" font-weight="normal" sketch:alignment="middle" fill="#FFFFFF">
-                    <tspan x="1.05306122" y="58.4895793">Columba</tspan>
-                </text>
+        <g id="Logo" sketch:type="MSLayerGroup">
+            <path d="M88.1202899,75 C87.7862553,52.8516287 69.7278633,35 47.5,35 C25.2721367,35 7.21374468,52.8516287 6.87971015,75 L88.1202899,75 Z" id="Oval-7-Copy-2" fill="#FFFFFF" sketch:type="MSShapeGroup"></path>
+            <path d="M161.068003,76 L31,76 C31,147.797017 89.2029825,206 161,206 C232.797017,206 291,147.797017 291,76 L290.931997,76 C289.364419,110.505925 260.893002,138 226,138 C191.106998,138 162.635581,110.505925 161.068004,76.0000313 Z" id="Oval-5-Copy" fill="#1072D4" sketch:type="MSShapeGroup"></path>
+            <circle id="Oval-6-Copy" fill="#1072D4" sketch:type="MSShapeGroup" cx="96" cy="76" r="65"></circle>
+            <g id="trimIn" transform="translate(161.000000, 76.000000)">
+                <mask id="mask-2" sketch:name="Mask" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <use id="Mask" opacity="0.3" fill="#FFFFFF" sketch:type="MSShapeGroup" xlink:href="#path-1"></use>
+                <path d="M91.5,88 C142.034055,88 183,47.0340546 183,-3.5 C183,-54.0340546 142.034055,-95 91.5,-95 C40.9659454,-95 0,-54.0340546 0,-3.5 C0,47.0340546 40.9659454,88 91.5,88 Z" opacity="0.3" fill="#FFFFFF" sketch:type="MSShapeGroup" mask="url(#mask-2)"></path>
             </g>
+            <g id="eye-3-copy" transform="translate(56.000000, 42.000000)" sketch:type="MSShapeGroup">
+                <circle id="Oval-3" fill="#FFFFFF" cx="16" cy="16" r="16"></circle>
+                <circle id="Oval-4" fill="#08396A" cx="16" cy="16" r="9.6"></circle>
+            </g>
+            <text id="Columba" sketch:type="MSTextLayer" font-family="Lato" font-size="72" font-weight="686" sketch:alignment="middle" fill="#FFFFFF">
+                <tspan x="3.548" y="293">Columba</tspan>
+            </text>
         </g>
     </g>
 </svg>

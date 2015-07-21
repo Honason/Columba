@@ -27,7 +27,7 @@ router.post('/get-proposals', User.ensureAuthenticated, function(req, res, next)
 router.post('/get-proposal', User.ensureAuthenticated, function(req, res, next) {
 
 	if (req.body.id) {
-		Proposal.findOne({'ownerId': req.decoded._id,'proposalId': req.body.id}).exec(function(err, retProposal){
+		Proposal.findOne({'ownerId': req.decoded._id,'_id': req.body.id}).exec(function(err, retProposal){
 			if (err) {
 				console.log(err);
 				res.json({
@@ -41,7 +41,6 @@ router.post('/get-proposal', User.ensureAuthenticated, function(req, res, next) 
 				if (retProposal.supplier) {
 					Contact.findOne({'_id': retProposal.supplier}).exec(function(err, retContact){
 						if (err) {console.log(err)};
-						console.log(retContact);
 						if (retContact) {
 							res.json({
 								success: true,
@@ -66,7 +65,26 @@ router.post('/get-proposal', User.ensureAuthenticated, function(req, res, next) 
 			message: 'Error, no id received.'
 		});
 	}
+});
 
+router.post('/get-contact', User.ensureAuthenticated, function(req, res, next) {
+	if (req.body.id) {
+		Contact.findOne({'ownerId': req.decoded._id, '_id': req.body.id}).exec(function(err, retContact){
+			if (err) {console.log(err)};
+			if (retContact) {
+				res.json({
+					success: true,
+					message: 'Returning contact',
+					contact: retContact
+				});
+			} else {
+				res.json({
+					success: false,
+					message: 'Contact not found'
+				});
+			}
+		});
+	}
 });
 
 router.post('/create-proposal', User.ensureAuthenticated, function(req, res, next) {
@@ -174,7 +192,6 @@ router.post('/delete-proposal', User.ensureAuthenticated, function(req, res, nex
 router.post('/update-proposal-section', User.ensureAuthenticated, function(req, res, next) {
 
 	var section = req.body.section;
-
 	if (section === "supplier") {
 		Contact.update({ownerId: req.decoded._id, _id: req.body.id},
 			{
@@ -200,7 +217,6 @@ router.post('/update-proposal-section', User.ensureAuthenticated, function(req, 
 				});
 			});
 	}
-
 });
 
 module.exports = router;

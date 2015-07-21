@@ -55,4 +55,14 @@ columbaApp.service('proposalService', ['$http', '$location', function($http, $lo
 		}
 	};
 
+	this.cancelSection = function(section) {
+		if (section === 'supplier') {
+			var supplierId = self.loadedProposal.supplier._id;
+
+			$http.post('proposals/get-contact', {id: supplierId}).success(function(response){
+				self.loadedProposal.supplier = response.contact;
+			});
+		}
+	};
+
 }]);

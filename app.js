@@ -19,7 +19,7 @@ var proposals = require('./routes/proposals');
 
 var app = express();
 
-app.use('/angular', express.static(path.join(__dirname, 'angular')));
+app.use('/angular', express.static(path.join(process.cwd(), 'angular')));
 app.use('/bower_components', express.static(path.join(__dirname, 'bower_components')));
 
 app.use(logger('dev'));
@@ -32,10 +32,11 @@ app.use(function(req, res, next) {
 });
 
 app.engine('hbs', hbs.express4({
-  defaultLayout: __dirname + '/angular/index.hbs',
+  partialsDir: process.cwd() + '/angular/',
+  defaultLayout: process.cwd() + '/angular/index.hbs',
 }));
 // view engine setup
-app.set('views', path.join(__dirname, 'angular'));
+app.set('views', path.join(process.cwd(), 'angular'));
 app.set('view engine', 'hbs');
 
 // Passport

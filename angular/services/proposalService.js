@@ -6,7 +6,7 @@ columbaApp.service('proposalService', ['$http', '$location', function($http, $lo
 	this.createProposal = function() {
 		$http.post('proposals/create-proposal').success(function(response){
 			if (response.success) {
-				$location.path('/').search({'pId': response.proposal.proposalId});
+				$location.path('/').search({'pId': response.proposal._id});
 			}
 		});
 	};

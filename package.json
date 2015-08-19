@@ -15,7 +15,6 @@
     "debug": "~2.1.1",
     "express": "~4.12.2",
     "express-handlebars": "^2.0.1",
-    "express-hbs": "^0.8.4",
     "express-validator": "*",
     "hbs": "~2.9.0",
     "jsonwebtoken": "^5.0.1",

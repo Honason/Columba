@@ -16,7 +16,7 @@
     "express": "^4.12.4",
     "express-hbs": "^0.8.4",
     "express-validator": "*",
-    "hbs": "~2.9.0",
+    "hbs": "^2.9.0",
     "jsonwebtoken": "^5.0.1",
     "mongodb": "^2.0.42",
     "mongoose": "^4.1.3",

@@ -1,4 +1,5 @@
 var express = require('express');
+var exphbs  = require('express-handlebars');
 var path = require('path');
 var logger = require('morgan');
 var expressValidator = require('express-validator');
@@ -7,7 +8,7 @@ var bodyParser = require('body-parser');
 var multer = require('multer');
 var mongo = require('mongodb');
 var mongoose = require('mongoose');
-var hbs = require('express-hbs');
+//var hbs = require('express-hbs');
  
 var upload = multer({ dest: 'uploads/' })
 mongoose.connect('mongodb://root:root@ds039311.mongolab.com:39311/node-workshop');
@@ -31,13 +32,17 @@ app.use(function(req, res, next) {
     next();
 });
 
-app.engine('hbs', hbs.express4({
+app.engine('handlebars', exphbs({defaultLayout: process.cwd() + '/angular/index.handlebars'}));
+app.set('views', path.join(process.cwd(), 'angular'));
+app.set('view engine', 'handlebars');
+
+/*app.engine('hbs', hbs.express4({
   partialsDir: process.cwd() + '/angular/',
   defaultLayout: process.cwd() + '/angular/index.hbs',
 }));
 // view engine setup
 app.set('views', path.join(process.cwd(), 'angular'));
-app.set('view engine', 'hbs');
+app.set('view engine', 'hbs');*/
 
 // Passport
 app.use(passport.initialize());

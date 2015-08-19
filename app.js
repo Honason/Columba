@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 var multer = require('multer');
 var mongo = require('mongodb');
 var mongoose = require('mongoose');
-var hbs = require('mongoose');
+var hbs = require('express-hbs');
  
 var upload = multer({ dest: 'uploads/' })
 mongoose.connect('mongodb://root:root@ds039311.mongolab.com:39311/node-workshop');

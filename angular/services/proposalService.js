@@ -32,7 +32,9 @@ columbaApp.service('proposalService', ['$http', '$location', function($http, $lo
 			console.log(response);
 			callback();
 		});
-	};
+	}; 
+
+	// ahoj
 
 	this.saveSection = function(section) {
 		if (section === 'supplier') {

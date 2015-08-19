@@ -12,7 +12,7 @@ var hbs = require('express-hbs');
 var upload = multer({ dest: 'uploads/' })
 mongoose.connect('mongodb://root:root@ds039311.mongolab.com:39311/node-workshop');
 var db = mongoose.connection;
-
+ 
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var proposals = require('./routes/proposals');

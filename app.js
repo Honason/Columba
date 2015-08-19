@@ -9,6 +9,7 @@ var mongo = require('mongodb');
 var mongoose = require('mongoose');
 var hbs = require('express-hbs');
  
+var upload = multer({ dest: 'uploads/' })
 mongoose.connect('mongodb://root:root@ds039311.mongolab.com:39311/node-workshop');
 var db = mongoose.connection;
 
@@ -17,9 +18,6 @@ var users = require('./routes/users');
 var proposals = require('./routes/proposals');
 
 var app = express();
-
-// Handle file uploads
-app.use(multer({dest:'./uploads'}));
 
 app.use('/angular', express.static(path.join(__dirname, 'angular')));
 app.use('/bower_components', express.static(path.join(__dirname, 'bower_components')));

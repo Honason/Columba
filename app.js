@@ -31,6 +31,14 @@ app.use(function(req, res, next) {
     next();
 });
 
+app.engine('hbs', hbs.express4({
+  partialsDir: process.cwd() + '/angular/',
+  defaultLayout: process.cwd() + '/angular/index.hbs',
+}));
+// view engine setup
+app.set('views', path.join(process.cwd(), 'angular'));
+app.set('view engine', 'hbs');
+
 // Passport
 app.use(passport.initialize());
 

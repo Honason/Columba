@@ -1,5 +1,4 @@
 var express = require('express');
-var exphbs  = require('express-handlebars');
 var path = require('path');
 var logger = require('morgan');
 var expressValidator = require('express-validator');
@@ -22,6 +21,10 @@ var app = express();
 app.use('/angular', express.static(path.join(process.cwd(), 'angular')));
 app.use('/bower_components', express.static(path.join(__dirname, 'bower_components')));
 
+app.get('/', function(request, response){
+    response.sendFile(__dirname +'/angular/index.html');
+});
+
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(function(req, res, next) {
@@ -30,10 +33,6 @@ app.use(function(req, res, next) {
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With');
     next();
 });
-
-app.engine('handlebars', exphbs({defaultLayout: process.cwd() + '/angular/index.handlebars'}));
-app.set('views', path.join(process.cwd(), 'angular'));
-app.set('view engine', 'handlebars');
 
 // Passport
 app.use(passport.initialize());

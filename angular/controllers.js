@@ -1,3 +1,4 @@
+/* global columbaApp */
 // Controllers
 
 columbaApp.controller('loginController', ['$scope', '$location', '$log', 'authService', 'dataService', 'transitionService', 
